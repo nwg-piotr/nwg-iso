@@ -13,6 +13,5 @@ md5sums=('SKIP')
 
 package() {
   install -D -m 755 install-shell "$pkgdir/usr/local/bin/install-shell"
-  install -D -m 755 installer.service "${pkgdir}/etc/systemd/system/installer.service"
   sed -i '$ a install-shell' ~/.bashrc
 }
