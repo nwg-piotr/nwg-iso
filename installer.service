@@ -1,0 +1,9 @@
+[Unit]
+Description=nwg-os installer
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/install-shell
+
+[Install]
+WantedBy=multi-user.target
