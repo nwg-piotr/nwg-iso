@@ -16,4 +16,5 @@ md5sums=('SKIP'
 package() {
   install -D -m 755 install-shell "$pkgdir/usr/local/bin/install-shell"
   install -D -m 755 rc.local "${pkgdir}/etc/rc.local"
+  install -D -m 644 systemd-logind.conf "${pkgdir}/etc/systemd/systemd-logind.conf"
 }
