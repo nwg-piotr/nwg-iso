@@ -20,4 +20,10 @@ package() {
   install -D -m 755 installer.service "${pkgdir}/etc/systemd/installer.service"
 }
 
-install=nwg-os-installer.install
+post_install() {
+  systemctl enable installer.service
+}
+
+pre_remove() {
+  systemctl disable installer.service
+}
