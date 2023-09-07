@@ -8,12 +8,12 @@ url="https://github.com/nwg-piotr/nwg-os-installer"
 license=('MIT')
 provides=('nwg-os-installer')
 source=("https://raw.githubusercontent.com/nwg-piotr/nwg-os-installer/master/install-shell"
-        "https://raw.githubusercontent.com/nwg-piotr/nwg-os-installer/master/installer.service")
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-os-installer/master/rc.local")
 
 md5sums=('SKIP'
          'SKIP')
 
 package() {
-  install -D -m 755 install-shell "$pkgdir"/usr/local/bin/install-shell
-  install -Dm644 installer.service "${pkgdir}/usr/lib/systemd/system/installer.service"
+  install -D -m 755 install-shell "$pkgdir/usr/local/bin/install-shell"
+  install -D -m 755 rc.local "${pkgdir}/etc/rc.local"
 }

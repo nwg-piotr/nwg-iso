@@ -81,4 +81,4 @@ else
    nwg-shell-installer -w
 fi
 
-sudo systemctl disable installer.service
+sudo rm /etc/rc.local
