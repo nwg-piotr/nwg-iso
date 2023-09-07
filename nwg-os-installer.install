@@ -1,7 +1,0 @@
-post_install() {
-  systemctl enable installer.service
-}
-
-pre_remove() {
-  systemctl disable installer.service
-}

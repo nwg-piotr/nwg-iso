@@ -1,9 +1,0 @@
-[Unit]
-Description=nwg-shell installer service
-
-[Service]
-Type=simple
-ExecStart=/usr/bin/bash /usr/local/bin/install-shell
-
-[Install]
-WantedBy=default.target

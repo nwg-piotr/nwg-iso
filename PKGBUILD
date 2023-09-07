@@ -7,23 +7,12 @@ arch=('x86_64')
 url="https://github.com/nwg-piotr/nwg-os-installer"
 license=('MIT')
 provides=('nwg-os-installer')
-source=("https://raw.githubusercontent.com/nwg-piotr/nwg-os-installer/master/install-shell"
-        "https://raw.githubusercontent.com/nwg-piotr/nwg-os-installer/master/installer.service"
-        "https://raw.githubusercontent.com/nwg-piotr/nwg-os-installer/master/nwg-os-installer.install")
+source=("https://raw.githubusercontent.com/nwg-piotr/nwg-os-installer/master/install-shell")
 
-md5sums=('SKIP'
-         'SKIP'
-         'SKIP')
+md5sums=('SKIP')
 
 package() {
   install -D -m 755 install-shell "$pkgdir/usr/local/bin/install-shell"
   install -D -m 755 installer.service "${pkgdir}/etc/systemd/system/installer.service"
-}
-
-post_install() {
-  systemctl enable installer.service
-}
-
-pre_remove() {
-  systemctl disable installer.service
+  sed -i '$ a install-shell' ~/.bashrc
 }
