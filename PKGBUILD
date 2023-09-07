@@ -8,15 +8,14 @@ url="https://github.com/nwg-piotr/nwg-os-installer"
 license=('MIT')
 provides=('nwg-os-installer')
 source=("https://raw.githubusercontent.com/nwg-piotr/nwg-os-installer/master/install-shell"
-        "https://raw.githubusercontent.com/nwg-piotr/nwg-os-installer/master/rc.local"
-        "https://raw.githubusercontent.com/nwg-piotr/nwg-os-installer/master/systemd-logind.conf")
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-os-installer/master/installer.service")
 
 md5sums=('SKIP'
-         'SKIP'
          'SKIP')
 
 package() {
   install -D -m 755 install-shell "$pkgdir/usr/local/bin/install-shell"
-  install -D -m 755 rc.local "${pkgdir}/etc/rc.local"
-  install -D -m 644 systemd-logind.conf "${pkgdir}/etc/systemd/systemd-logind.conf"
+  install -D -m 755 installer.service "${pkgdir}/etc/systemd/installer.service"
 }
+
+install=nwg-os-installer.install

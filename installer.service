@@ -1,0 +1,9 @@
+[Unit]
+Description=nwg-shell installer service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/install-shell
+
+[Install]
+WantedBy=multi-user.target
