@@ -8,7 +8,7 @@ url="https://github.com/nwg-piotr/nwg-os-installer"
 license=('MIT')
 provides=('nwg-os-installer')
 source=("https://raw.githubusercontent.com/nwg-piotr/nwg-os-installer/master/install-shell"
-        "https://raw.githubusercontent.com/nwg-piotr/nwg-os-installer/master/installer-service")
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-os-installer/master/installer.service")
 
 md5sums=('SKIP'
          'SKIP')
