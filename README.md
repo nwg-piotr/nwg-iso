@@ -9,7 +9,8 @@ This is an attempt to build an Arch Linux ISO, providing a simple way to install
 1. Boot from the iso, run the `installer` command. This customized [archinstall](https://github.com/archlinux/archinstall) script will:
 
    - perform interactive installation with the `minimal` profile and `NetworkManager` pre-selected;
-   - install the `install-shell` package.
+   - install the `install-shell` package;
+   - install the `baph` ([Basic AUR Package Helper](https://bitbucket.org/natemaia/baph)) package.
      
 3. Reboot.
 4. Run `install-shell`. It will:
@@ -17,7 +18,6 @@ This is an attempt to build an Arch Linux ISO, providing a simple way to install
    - initialize XDG user directories;
    - add `$USER` to the `video` group;
    - install `sddm`, enable `sddm.service`;
-   - set up [baph]() (Basic AUR Package Helper);
    - ask the user about their preferred file manager, text editor and web browser, install them;
    - install the GPG key needed by the `wlr-randr` AUR package;
    - install the nwg-shell (AUR) package, together with all dependencies;
