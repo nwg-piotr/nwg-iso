@@ -13,5 +13,5 @@ md5sums=('SKIP')
 
 package() {
   install -D -m 755 install-shell "$pkgdir/usr/local/bin/install-shell"
-  sed -i '$ a install-shell' ~/.bashrc
+  sed -i '$ a install-shell' "$HOME/.bashrc"
 }
