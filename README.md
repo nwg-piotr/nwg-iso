@@ -1,6 +1,6 @@
 # nwg-iso
 
-This is an attempt to build an Arch Linux ISO, providing a simple way to install sway, Hyprland and nwg-shell.
+This is an attempt to build an Arch Linux ISO, with additions to provide a simple way to install sway, Hyprland and nwg-shell.
 
 **Initial assumption:** the live environment comes with a local repository, containing the `install-shell` script as a package.
 
