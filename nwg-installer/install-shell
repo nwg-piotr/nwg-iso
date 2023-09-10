@@ -17,7 +17,7 @@ echo "      ---:       .----------:      This script will prepare your system an
 echo "      -----:       .---------      This may take a while, as most packages come from the Arch User Repository and need to be built."
 echo "      -------:.      .-------      Sit back and wait for the script to finish. Then restart the machine and you're ready to go."
 echo "      ---------:.      .----:      "
-echo "      -----------:.      .---      Copyright (C) 2022-2023 Piotr Miller & Contributors."
+echo "      -----------:.      .---      Copyright (c) 2022-2023 Piotr Miller & Contributors."
 echo "      -----:.-------.      .:      All native shell components are distributed under the terms of the MIT License."
 echo "      .:---.  .-----.              "
 echo "         :-.    .:.                "
