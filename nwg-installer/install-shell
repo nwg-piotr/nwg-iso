@@ -8,23 +8,20 @@ fi
 # Don't continue script if any error occurs.
 set -e
 
-echo "                                                                           ===-                            ===-   .===:"
-echo "                                                                          .@@@#                           :@@@#   -@@@*"
-echo "                                                                          .@@@#                           :@@@*   -@@@+"
-echo "                                                                          .@@@#                           :@@@*   -@@@+"
-echo "                                                                          .@@@#                           :@@@*   -@@@+"
-echo " =**+ =#@@%#=   =***.  -**=   -***.  .=#%@@%#=+***             =*%@@@%*.  .@@@#.*%@%%*-      -*%@@@%*-    :@@@*   -@@@+"
-echo " #@@@@@##@@@@*  .@@@%  *@@@= .@@@+  =@@@@#**%@@@@@            #@@@=:=*+   .@@@@@@##@@@@-   -@@@%++*@@@#.  :@@@*   -@@@+"
-echo " *@@@#   .@@@%   .%@@*+@@@@@=#@@*  -@@@*     .@@@@   -****=   #@@@#=-.    .@@@@=   +@@@=  -@@@+  :=%@@@*  :@@@*   -@@@+"
-echo " *@@@:   .@@@#    :@@@@@=.@@@@@#   +@@@=      %@@@   +@@@@#    -*%@@@@%:  .@@@%    =@@@=  +@@@%%@@%+=-.   :@@@*   -@@@+"
-echo " *@@@.   .@@@#     -@@@+  .@@@%    .@@@@+:..:*@@@@            --. .+@@@*  .@@@#    =@@@=  .@@@@#-::-.     :@@@*   -@@@+"
-echo " #@@@:   .@@@%      -@*    .@@.     .*@@@@@@@#@@@@           .%@@@@@@@*   .@@@%    =@@@=   .*@@@@@@@@:    :@@@#   -@@@*"
-echo " ::::     ::::       -      ::        .----:  %@@@             .:==-:.     ::::    .:::.      :-==-:.      ::::    :::."
-echo "                                     =@%+---+@@@@-"
-echo "                                     =#@@@@@@@#+."
-echo "                                        .:::.."
 echo
-echo "Installing nwg-shell"
+echo "                       .:          "
+echo "               .:-:    :--.        "
+echo "              :-----:. .----.      Welcome to nwg-shell, a GTK3-based user interface for sway and Hyprland Wayland compositors."
+echo "      -:       .------::-----      "
+echo "      ---:       .----------:      This script will prepare your system and install the shell, together with all dependencies."
+echo "      -----:       .---------      This may take a while, as most packages come from the Arch User Repository and need to be built."
+echo "      -------:.      .-------      Sit back and wait for the script to finish. Then restart the machine and you're ready to go."
+echo "      ---------:.      .----:      "
+echo "      -----------:.      .---      Copyright (C) 2022-2023 Piotr Miller & Contributors."
+echo "      -----:.-------.      .:      All native shell components are distributed under the terms of the MIT License."
+echo "      .:---.  .-----.              "
+echo "         :-.    .:.                "
+echo "          ..                       "
 echo
 
 sudo pacman -S --noconfirm git man-db vi xdg-user-dirs sddm
