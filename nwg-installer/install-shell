@@ -8,6 +8,9 @@ fi
 # Don't continue script if any error occurs.
 set -e
 
+sudo systemctl enable NetworkManager.service
+sudo systemctl start NetworkManager.service
+
 echo
 echo "                       .:          "
 echo "               .:-:    :--.        "
@@ -34,9 +37,6 @@ sudo usermod -aG video $USER
 
 echo "Enabling display manager"
 sudo systemctl enable sddm.service
-
-echo "Enabling NetworkManager"
-sudo systemctl enable NetworkManager.service
 
 echo
 echo "You are about to select components, that need to be preinstalled for the key bindings to work."
