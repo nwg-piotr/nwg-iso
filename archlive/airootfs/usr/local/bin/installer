@@ -150,7 +150,7 @@ def perform_installation(mountpoint: Path):
 		if archinstall.arguments.get('packages', None) and archinstall.arguments.get('packages', None)[0] != '':
 			installation.add_additional_packages(archinstall.arguments.get('packages', []))
 
-		installation.add_additional_packages(['baph', 'nwg-os-installer', 'networkmanager', 'network-manager-applet'])
+		installation.add_additional_packages(['baph', 'install-shell', 'networkmanager', 'network-manager-applet'])
 
 		if users := archinstall.arguments.get('!users', None):
 			installation.create_users(users)
