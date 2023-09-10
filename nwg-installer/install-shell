@@ -35,6 +35,9 @@ sudo usermod -aG video $USER
 echo "Enabling display manager"
 sudo systemctl enable sddm.service
 
+echo "Enabling NetworkManager"
+sudo systemctl enable NetworkManager.service
+
 echo
 echo "You are about to select components, that need to be preinstalled for the key bindings to work."
 echo "None of them is a shell dependency, and you're free to change them any time later."
