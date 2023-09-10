@@ -63,7 +63,7 @@ def ask_user_questions():
 		global_menu.enable('parallel downloads')
 
 	# Ask or Call the helper function that asks the user to optionally configure a network.
-	global_menu.enable('network_config')
+	# global_menu.enable('network_config')
 
 	global_menu.enable('timezone')
 
@@ -150,7 +150,7 @@ def perform_installation(mountpoint: Path):
 		if archinstall.arguments.get('packages', None) and archinstall.arguments.get('packages', None)[0] != '':
 			installation.add_additional_packages(archinstall.arguments.get('packages', []))
 
-		installation.add_additional_packages(['baph', 'nwg-os-installer'])
+		installation.add_additional_packages(['baph', 'nwg-os-installer', 'networkmanager', 'network-manager-applet'])
 
 		if users := archinstall.arguments.get('!users', None):
 			installation.create_users(users)
