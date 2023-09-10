@@ -27,7 +27,7 @@ echo
 echo "Installing nwg-shell"
 echo
 
-sudo pacman -S --noconfirm git man-db vi xdg-user-dirs
+sudo pacman -S --noconfirm git man-db vi xdg-user-dirs sddm
 
 echo Initializing XDG user directories
 xdg-user-dirs-update
@@ -35,9 +35,12 @@ xdg-user-dirs-update
 echo "Adding $USER to video group"
 sudo usermod -aG video $USER
 
+echo "Enabling display manager"
+sudo systemctl enable sddm.service
+
 echo
 echo "You are about to select components, that need to be preinstalled for the key bindings to work."
-echo "None of above is a shell dependency, and you're free to change them any time later."
+echo "None of them is a shell dependency, and you're free to change them any time later."
 echo
 
 PS3="Select file manager: "
@@ -69,5 +72,7 @@ gpg --recv-key 0FDE7BE0E88F5E48
 
 echo Installing nwg-shell
 baph -inN nwg-shell
+
+baph -inN hyprland wlr-randr
 
 nwg-shell-installer -w -hypr
