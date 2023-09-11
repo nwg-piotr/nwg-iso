@@ -155,8 +155,6 @@ def perform_installation(mountpoint: Path):
 
         installation.enable_service('NetworkManager.service')
 
-        installation.enable_service('sddm.service')
-
         if users := archinstall.arguments.get('!users', None):
             installation.create_users(users)
 
