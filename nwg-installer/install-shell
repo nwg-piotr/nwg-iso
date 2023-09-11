@@ -32,9 +32,6 @@ xdg-user-dirs-update
 echo "Adding $USER to video group"
 sudo usermod -aG video $USER
 
-echo "Enabling display manager"
-sudo systemctl enable sddm.service
-
 echo
 echo "You are about to select components, that need to be preinstalled for the key bindings to work."
 echo "None of them is a shell dependency, and you're free to change them any time later."
