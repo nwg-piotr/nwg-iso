@@ -8,9 +8,6 @@ fi
 # Don't continue script if any error occurs.
 set -e
 
-sudo systemctl enable NetworkManager.service
-sudo systemctl start NetworkManager.service
-
 echo
 echo "                       .:          "
 echo "               .:-:    :--.        "
