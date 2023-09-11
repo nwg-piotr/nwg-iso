@@ -152,6 +152,8 @@ def perform_installation(mountpoint: Path):
 
 		installation.add_additional_packages(['baph', 'install-shell', 'networkmanager', 'network-manager-applet'])
 
+		installation.enable_service('NetworkManager.service')
+
 		if users := archinstall.arguments.get('!users', None):
 			installation.create_users(users)
 
