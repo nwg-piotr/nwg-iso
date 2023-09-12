@@ -64,12 +64,18 @@ echo
 echo "Installing selection: $fm $editor $browser"
 baph -inN $fm $editor $browser
 
+baph -inN fastfetch-bin
+
 echo Installing Simon Ser GPG key, needed by the wlr-randr AUR package
 gpg --recv-key 0FDE7BE0E88F5E48
 
+sed -i '$ a alias cls='\''clear'\''' ~/.bashrc
+sed -i '$ a alias fetch='\''fastfetch'\''' ~/.bashrc
+sed -i '$ a fastfetch' ~/.bashrc
+
 baph -inN hyprland wlr-randr
 
-mkdir -p $HOME/.config/neofetch && cp /etc/nwg/neofetch.config.conf $_/config.conf
+mkdir -p $HOME/.config/fastfetch && cp /etc/nwg/fastfetch.config.jsonc $_/config.jsonc
 
 echo Installing nwg-shell
 baph -inN nwg-shell
