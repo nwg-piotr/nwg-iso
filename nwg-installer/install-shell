@@ -69,6 +69,8 @@ gpg --recv-key 0FDE7BE0E88F5E48
 
 baph -inN hyprland wlr-randr
 
+mkdir -p $HOME/.config/neofetch && cp /etc/nwg/neofetch.config.conf $_/config.conf
+
 echo Installing nwg-shell
 baph -inN nwg-shell
 
