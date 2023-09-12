@@ -8,16 +8,19 @@ url="https://github.com/nwg-piotr/nwg-os-installer"
 license=('MIT')
 provides=('install-shell')
 source=("https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-installer/install-shell"
-        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-installer/nwg-os.svg"
-        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-installer/nwg.txt")
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-installer/nwg.svg"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-installer/nwg.txt"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-installer/fastfetch.config.jsonc")
 
 md5sums=('SKIP'
+         'SKIP'
          'SKIP'
          'SKIP')
 
 package() {
-  install -d "$pkgdir"/usr/share/nwg
+  install -d "$pkgdir"/etc/nwg
   install -D -m 755 install-shell "$pkgdir/usr/local/bin/install-shell"
-  install -D -m 644 nwg-os.svg "$pkgdir/usr/share/pixmaps/nwg-os.svg"
+  install -D -m 644 nwg.svg "$pkgdir/usr/share/pixmaps/nwg.svg"
   install -D -m 644 nwg.txt "$pkgdir/usr/share/nwg/nwg.txt"
+  install -D -m 644 fastfetch.config.jsonc "$pkgdir/etc/nwg/fastfetch.config.jsonc"
 }
