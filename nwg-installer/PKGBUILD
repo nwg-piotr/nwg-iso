@@ -1,17 +1,23 @@
 # Maintainer: Piotr Miller <nwg.piotr@gmail.com>
-pkgname=('nwg-os-installer')
-pkgver=0.0.1
+pkgname=('install-shell')
+pkgver=0.1.0
 pkgrel=1
-pkgdesc="nwg-shell installer for the nwg-os iso"
+pkgdesc="nwg-shell installer script for nwg-iso"
 arch=('x86_64')
 url="https://github.com/nwg-piotr/nwg-os-installer"
 license=('MIT')
-provides=('nwg-os-installer')
-source=("https://raw.githubusercontent.com/nwg-piotr/nwg-os-installer/master/install-shell")
+provides=('install-shell')
+source=("https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-installer/install-shell"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-installer/nwg-os.svg"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-installer/nwg.txt")
 
-md5sums=('SKIP')
+md5sums=('SKIP'
+         'SKIP'
+         'SKIP')
 
 package() {
+  install -d "$pkgdir"/usr/share/nwg
   install -D -m 755 install-shell "$pkgdir/usr/local/bin/install-shell"
-  sed -i '$ a install-shell' "$HOME/.bashrc"
+  install -D -m 644 nwg-os.svg "$pkgdir/usr/share/pixmaps/nwg-os.svg"
+  install -D -m 644 nwg.txt "$pkgdir/usr/share/nwg/nwg.txt"
 }
