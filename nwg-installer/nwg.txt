@@ -1,5 +1,4 @@
-                               
-                               
+
                         .      
                .,.     .d:.    
              .:dddc.   .dddc.  
@@ -14,4 +13,4 @@
    dddddd,;dddddddl.        ,o.
    :ddddd.  ;ddddddd,          
     .:ddd.    ;ddd:.           
-       ;o.      '.             
+       ;o.      '.
