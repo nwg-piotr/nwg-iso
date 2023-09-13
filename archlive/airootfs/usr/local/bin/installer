@@ -201,9 +201,8 @@ def perform_installation(mountpoint: Path):
 
         installation.genfstab()
 
-        subprocess.Popen("clear", shell=True)
-        info("Your computer will now restart. Log in and type the 'install-shell' command.")
-        input("\nPress Enter to continue. ")
+        info("\nYour computer will now restart. Log in and type the 'install-shell' command.\n")
+        input("\nPress Enter to continue... ")
 
         # if not archinstall.arguments.get('silent'):
         #     prompt = str(
