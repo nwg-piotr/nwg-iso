@@ -151,7 +151,7 @@ def perform_installation(mountpoint: Path):
             installation.add_additional_packages(archinstall.arguments.get('packages', []))
 
         installation.add_additional_packages(
-            ['baph', 'install-shell', 'networkmanager', 'network-manager-applet'])
+            ['baph', 'install-shell', 'networkmanager', 'network-manager-applet', 'nano', 'go', 'python-wheel'])
 
         installation.enable_service('NetworkManager.service')
 
