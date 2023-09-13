@@ -4,6 +4,8 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any, Optional
 
 import archinstall
+import os
+import subprocess
 from archinstall import Installer
 from archinstall import profile
 from archinstall import SysInfo
@@ -14,6 +16,7 @@ from archinstall import models
 from archinstall import locale
 from archinstall import info, debug
 from archinstall.default_profiles.minimal import MinimalProfile
+from archinstall.lib.networking import check_mirror_reachable
 
 if TYPE_CHECKING:
     _: Any
@@ -153,8 +156,6 @@ def perform_installation(mountpoint: Path):
         installation.add_additional_packages(
             ['baph', 'install-shell', 'networkmanager', 'network-manager-applet', 'nano', 'go', 'python-wheel'])
 
-        installation.enable_service('NetworkManager.service')
-
         if users := archinstall.arguments.get('!users', None):
             installation.create_users(users)
 
@@ -191,27 +192,37 @@ def perform_installation(mountpoint: Path):
         if archinstall.arguments.get('services', None):
             installation.enable_service(archinstall.arguments.get('services', []))
 
+        installation.enable_service('NetworkManager.service')
+
         # If the user provided custom commands to be run post-installation, execute them now.
         if archinstall.arguments.get('custom-commands', None):
             archinstall.run_custom_user_commands(archinstall.arguments['custom-commands'], installation)
 
         installation.genfstab()
 
-        info(
-            "For post-installation tips, see https://wiki.archlinux.org/index.php/Installation_guide#Post-installation")
+        subprocess.Popen("clear", shell=True)
+        info("\nYour computer will now restart. Log in and type the 'install-shell' command.\n")
+        input("Press Enter to continue. ")
 
-        if not archinstall.arguments.get('silent'):
-            prompt = str(
-                _('Would you like to chroot into the newly created installation and perform post-installation configuration?'))
-            choice = menu.Menu(prompt, menu.Menu.yes_no(), default_option=menu.Menu.yes()).run()
-            if choice.value == menu.Menu.yes():
-                try:
-                    installation.drop_to_shell()
-                except Exception:
-                    pass
+        # if not archinstall.arguments.get('silent'):
+        #     prompt = str(
+        #         _('Would you like to chroot into the newly created installation and perform post-installation configuration?'))
+        #     choice = menu.Menu(prompt, menu.Menu.yes_no(), default_option=menu.Menu.yes()).run()
+        #     if choice.value == menu.Menu.yes():
+        #         try:
+        #             installation.drop_to_shell()
+        #         except Exception:
+        #             pass
+
+        subprocess.Popen("/usr/bin/reboot", shell=True)
 
     debug(f"Disk states after installing: {disk.disk_layouts()}")
 
+
+if archinstall.arguments.get('skip-mirror-check', False) is False and check_mirror_reachable() is False:
+    log_file = os.path.join(archinstall.storage.get('LOG_PATH', None), archinstall.storage.get('LOG_FILE', None))
+    info(f"Arch Linux mirrors are not reachable. Please check your internet connection and the log file '{log_file}'.")
+    exit(1)
 
 ask_user_questions()
 
