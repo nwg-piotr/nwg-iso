@@ -24,7 +24,7 @@ echo "         :-.    .:.                "
 echo "          ..                       "
 echo
 
-sudo pacman -S --noconfirm git man-db vi xdg-user-dirs sddm sddm-sugar-candy-nwg
+sudo pacman -S --noconfirm git man-db vi xdg-user-dirs
 
 echo Initializing XDG user directories
 xdg-user-dirs-update
