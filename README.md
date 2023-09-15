@@ -19,7 +19,6 @@ This is an Arch Linux ISO built by [archiso](https://wiki.archlinux.org/title/Ar
 - [sddm](https://wiki.archlinux.org/title/SDDM) Display Manager w/ customized [sddm-sugar-candy-nwg](https://github.com/nwg-piotr/sddm-sugar-candy-nwg) theme;
 - [foot](https://wiki.archlinux.org/title/Foot) terminal emulator (Super+T);
 - [fastfetch](https://github.com/fastfetch-cli/fastfetch) (alias 'fetch') - a fetch tool;
-- [NetworkManager](https://wiki.archlinux.org/title/NetworkManager)
-- [nano](https://wiki.archlinux.org/title/Nano)
+- [nano](https://wiki.archlinux.org/title/Nano).
 
 ![image](https://github.com/nwg-piotr/nwg-iso/assets/20579136/14587d6e-f794-4cc7-8830-5a955aaa9776)
