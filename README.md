@@ -30,6 +30,10 @@ On first run of as well sway, as Hyprland, the shell config utility will be auto
 
 Click the (i) icon in the top panel to see default key bindings. Open the Controls menu in the top panel to see more configuration tools.
 
+## Testing on a virtual machine
+
+Running sway and Hyprland on a VM is possible, but frustrating. You'd need to `export WLR_NO_HARDWARE_CURSORS=1` in `/etc/profile` to see the mouse pointer, and it would be sluggish and slow-reacting. I highly recommend testing on real hardware. If you still want to test on a VM, remember to enable graphics 3D acceleration and EFI.
+
 ## Contact
 
 See my [GitHub profile](https://github.com/nwg-piotr) for contact info.
