@@ -8,9 +8,9 @@ This is an Arch Linux ISO built by [archiso](https://wiki.archlinux.org/title/Ar
 
 1. Download the iso [here](https://drive.google.com/file/d/1goXg3jmsOWgq_G1BTg1Bje28rfqtnb9L/view?usp=sharing) (will publish on some more trustful place ASAP).
 2. Create USB flash installation medium as decribed in [Arch Wiki](https://wiki.archlinux.org/title/USB_flash_installation_medium). Or just use `imagewriter`, as I do.
-3. Boot from the iso, run the `installer` command. Go through the interactive installation.
+3. Boot from the iso, run the `installer` command. Go through the interactive Arch Linux installation.
 4. Reboot.
-5. Run `install-shell`. Answer questions on your preferred file manager, text editor and web browser. Wait for the script to finish.
+5. Run the `install-shell` command. Answer questions on your preferred file manager, text editor and web browser. Wait for the script to finish.
 6. Reboot and you're ready to go.
 
 **Preinstalled stuff:**
