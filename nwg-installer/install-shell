@@ -24,16 +24,11 @@ echo "         :-.    .:.                "
 echo "          ..                       "
 echo
 
-sudo pacman -S --noconfirm git man-db vi xdg-user-dirs
-
-echo Initializing XDG user directories
-xdg-user-dirs-update
-
 echo "Adding $USER to video group"
 sudo usermod -aG video $USER
 
-echo "Enabling display manager"
-sudo systemctl enable sddm.service
+echo Initializing XDG user directories
+xdg-user-dirs-update
 
 echo
 echo "You are about to select components, that need to be preinstalled for the key bindings to work."
@@ -79,5 +74,8 @@ mkdir -p $HOME/.config/fastfetch && cp /etc/nwg/fastfetch.config.jsonc $_/config
 
 echo Installing nwg-shell
 baph -inN nwg-shell
+
+echo "Enabling display manager"
+sudo systemctl enable sddm.service
 
 nwg-shell-installer -w -hypr

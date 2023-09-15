@@ -154,8 +154,8 @@ def perform_installation(mountpoint: Path):
             installation.add_additional_packages(archinstall.arguments.get('packages', []))
 
         installation.add_additional_packages(
-            ['baph', 'install-shell', 'networkmanager', 'network-manager-applet', 'nano', 'go', 'python-wheel',
-             'python-dasbus', 'sddm', 'sddm-sugar-candy-nwg'])
+            ['networkmanager', 'network-manager-applet', 'nano', 'go', 'python-wheel', 'xdg-user-dirs', 'python-dasbus',
+             'sddm', 'baph', 'install-shell', 'sddm-sugar-candy-nwg'])
 
         if users := archinstall.arguments.get('!users', None):
             installation.create_users(users)
@@ -190,8 +190,8 @@ def perform_installation(mountpoint: Path):
 
         # If the user provided a list of services to be enabled, pass the list to the enable_service function.
         # Note that while it's called enable_service, it can actually take a list of services and iterate it.
-        if archinstall.arguments.get('services', None):
-            installation.enable_service(archinstall.arguments.get('services', []))
+        # if archinstall.arguments.get('services', None):
+        #     installation.enable_service(archinstall.arguments.get('services', []))
 
         installation.enable_service('NetworkManager.service')
 
