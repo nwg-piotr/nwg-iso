@@ -21,3 +21,15 @@ This is an Arch Linux ISO built by [archiso](https://wiki.archlinux.org/title/Ar
 - [fastfetch](https://github.com/fastfetch-cli/fastfetch) (alias 'fetch') - a fetch tool.
 
 ![image](https://github.com/nwg-piotr/nwg-iso/assets/20579136/14587d6e-f794-4cc7-8830-5a955aaa9776)
+
+## Post-installation
+
+On first run of as well sway, as Hyprland, the shell config utility will be auto-started. Review your settings here. Uncheck the 'Show on startup` box for the config utility not to be auto-started any longer. Don't forget to press the "Apply" button, or the file manager, text editor and web browser keyboard bindings will not work.
+
+![2023-09-16-001157_hypr_screenshot](https://github.com/nwg-piotr/nwg-iso/assets/20579136/a11a9786-558e-4567-a7f4-8b2a5226032c)
+
+Click the (i) icon in the top panel to see default key bindings. Open the Controls menu in the top panel to see more configuration tools.
+
+## Contact
+
+See my [GitHub profile](https://github.com/nwg-piotr) for contact info.
