@@ -1,6 +1,6 @@
 # nwg-iso
 
-This repository is a part of the [nwg-shell](https://nwg-piotr.github.io/nwg-shell) project.
+This repository is a part of the [nwg-shell](https://nwg-piotr.github.io/nwg-shell) project. Please check the project website.
 
 This is an Arch Linux ISO built by [archiso](https://wiki.archlinux.org/title/Archiso), with additions to provide a simple way to install nwg-shell, together with sway and Hyprland Wayland compositors. The live environment (CLI) comes with the `installer` command, which is a simplified version of the interactive installation with the `archinstall` script. Some must have stuff has already been pre-selected. The iso also provides a script to install the shell itself - from the user account. Some packages (installer, AUR helper, customized sddm theme and `pythod-dasbus`) have been provided in a local repository. Besides, we only use Arch and AUR repositories.
 
