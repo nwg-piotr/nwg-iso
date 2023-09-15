@@ -4,7 +4,7 @@ This repository is a part of the nwg-shell project. Please check the [project we
 
 This is an Arch Linux ISO built by [archiso](https://wiki.archlinux.org/title/Archiso), with additions to provide a simple way to install nwg-shell, together with sway and Hyprland Wayland compositors. The live environment (CLI) comes with the `installer` command, which is a simplified version of the interactive installation with the [archinstall](https://python-archinstall.readthedocs.io/en/latest/installing/guided.html#description-individual-steps) script. Some must have stuff has already been pre-selected. The iso also provides a script to install the shell itself - from the user account. Some packages (installer, AUR helper, customized sddm theme and `pythod-dasbus`) have been provided in a local repository. Besides, we only use Arch and AUR repositories.
 
-**Installation steps:**
+## Installation
 
 1. Download the iso [here](https://drive.google.com/file/d/1goXg3jmsOWgq_G1BTg1Bje28rfqtnb9L/view?usp=sharing) (will publish on some more trustful place ASAP).
 2. Create USB flash installation medium as decribed in [Arch Wiki](https://wiki.archlinux.org/title/USB_flash_installation_medium). Or just use `imagewriter`, as I do.
