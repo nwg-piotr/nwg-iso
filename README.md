@@ -28,7 +28,7 @@ On first run of as well sway, as Hyprland, the shell config utility will be auto
 
 ![2023-09-16-001157_hypr_screenshot](https://github.com/nwg-piotr/nwg-iso/assets/20579136/a11a9786-558e-4567-a7f4-8b2a5226032c)
 
-Click the (i) icon in the top panel to see default key bindings. Open the Controls menu in the top panel to see more configuration tools.
+Click the (i) icon in the top panel to see key bindings help. Open the Controls menu in the top panel to see more configuration tools.
 
 ## Testing on a virtual machine
 
