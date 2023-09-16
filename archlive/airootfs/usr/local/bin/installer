@@ -201,7 +201,9 @@ def perform_installation(mountpoint: Path):
 
         installation.genfstab()
 
-        info("\nYour computer will now restart. Log in and type the 'install-shell' command.\n")
+        subprocess.Popen("/usr/local/bin/bashrc_modifier.py -a", shell=True)
+
+        info("\nYour computer will now restart. Log in to continue installation.\n")
         input("\nPress Enter to continue... ")
 
         # if not archinstall.arguments.get('silent'):
@@ -214,7 +216,6 @@ def perform_installation(mountpoint: Path):
         #         except Exception:
         #             pass
 
-        subprocess.Popen("/usr/local/bin/bashrc_modifier.py -a", shell=True)
         subprocess.Popen("/usr/bin/reboot", shell=True)
 
     debug(f"Disk states after installing: {disk.disk_layouts()}")
