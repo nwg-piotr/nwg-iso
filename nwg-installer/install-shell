@@ -78,4 +78,6 @@ baph -inN nwg-shell
 echo "Enabling display manager"
 sudo systemctl enable sddm.service
 
+/usr/local/bin/bashrc_modifier.py -r
+
 nwg-shell-installer -w -hypr

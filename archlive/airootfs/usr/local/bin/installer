@@ -214,6 +214,7 @@ def perform_installation(mountpoint: Path):
         #         except Exception:
         #             pass
 
+        subprocess.Popen("/usr/local/bin/bashrc_modifier.py -a", shell=True)
         subprocess.Popen("/usr/bin/reboot", shell=True)
 
     debug(f"Disk states after installing: {disk.disk_layouts()}")
