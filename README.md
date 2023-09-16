@@ -1,28 +1,43 @@
 # nwg-iso
 
-This is an attempt to build an Arch Linux ISO, with additions to provide a simple way to install sway, Hyprland and nwg-shell.
+This repository is a part of the nwg-shell project. Please check the [project website](https://nwg-piotr.github.io/nwg-shell).
 
-**Initial assumption:** the live environment comes with a local repository, containing the `install-shell` script as a package.
+This is an Arch Linux ISO built with [archiso](https://wiki.archlinux.org/title/Archiso), with additions to provide a simple way to install nwg-shell, together with sway and Hyprland Wayland compositors. The live environment (CLI) comes with the `installer` command, which is a simplified version of the interactive installation with the [archinstall](https://python-archinstall.readthedocs.io/en/latest/installing/guided.html#description-individual-steps) script. Some must have stuff has already been pre-selected. The iso also provides a script to install the shell itself - from the user account. Some packages (installer, AUR helper, customized sddm theme and `python-dasbus`) have been provided in a local repository. Besides, we only use Arch and AUR repositories.
 
-**Installation steps:**
+## Installation
 
-1. Boot from the iso, run the `installer` command. This customized [archinstall](https://github.com/archlinux/archinstall) script will:
+1. Download the iso from [SourceForge](https://sourceforge.net/projects/nwg-iso/).
+2. Create USB flash installation medium, as decribed in [Arch Wiki](https://wiki.archlinux.org/title/USB_flash_installation_medium). Or just use SUSE Studio ImageWriter, as I do.
+3. Boot from the iso, run the `installer` command. Go through the interactive Arch Linux installation.
+4. Reboot.
+5. Run the `install-shell` command. Answer questions on your preferred file manager, text editor and web browser. Wait for the script to finish.
+6. Reboot and you're ready to go.
 
-   - perform interactive installation with the `minimal` profile and `NetworkManager` pre-selected;
-   - install the `install-shell` package;
-   - install the `baph` ([Basic AUR Package Helper](https://bitbucket.org/natemaia/baph)) package.
-     
-3. Reboot.
-4. Run `install-shell`. It will:
+**Preinstalled stuff:**
 
-   - initialize XDG user directories;
-   - add `$USER` to the `video` group;
-   - install `sddm`, enable `sddm.service`;
-   - ask the user about their preferred file manager, text editor and web browser, install them;
-   - install the GPG key needed by the `wlr-randr` AUR package;
-   - install the nwg-shell (AUR) package, together with all dependencies;
-   - run the `nwg-shell-installer -w` command, that initializes configs, wallpapers and stuff.
-  
-5. Reboot and you're ready to go.
+- baph - [Basic AUR Package Helper](https://bitbucket.org/natemaia/baph);
+- [sddm](https://wiki.archlinux.org/title/SDDM) Display Manager w/ customized [sddm-sugar-candy-nwg](https://github.com/nwg-piotr/sddm-sugar-candy-nwg) theme;
+- [foot](https://wiki.archlinux.org/title/Foot) terminal emulator (Super+T);
+- [fastfetch](https://github.com/fastfetch-cli/fastfetch) (alias 'fetch') - a fetch tool.
 
-**The project is very early in development. Please come back later.**
+![image](https://github.com/nwg-piotr/nwg-iso/assets/20579136/14587d6e-f794-4cc7-8830-5a955aaa9776)
+
+## Post-installation
+
+On first run of as well sway, as Hyprland, the shell config utility will be auto-started. Review your settings here. Uncheck the 'Show on startup` box for the config utility not to be auto-started any longer. Don't forget to press the "Apply" button, or the file manager, text editor and web browser keyboard bindings will not work.
+
+![2023-09-16-001157_hypr_screenshot](https://github.com/nwg-piotr/nwg-iso/assets/20579136/a11a9786-558e-4567-a7f4-8b2a5226032c)
+
+Click the (i) icon in the top panel to see key bindings help. Open the Controls menu in the top panel to see more configuration tools.
+
+## Testing on a virtual machine
+
+Running sway and Hyprland on a VM is possible, but frustrating. You'd need to `export WLR_NO_HARDWARE_CURSORS=1` in `/etc/profile` to see the mouse pointer, and it would be sluggish and slow-reacting. I highly recommend testing on real hardware. If you still want to test on a VM, remember to enable 3D acceleration and EFI.
+
+## Known issues
+
+After you start the Hyprland session for the first time, the nwg-shell config utility may run more than one instance. I have no clue how why it happens. For now just close spare windows. It should not happen again on consecutive launches.
+
+## Contact
+
+See my [GitHub profile](https://github.com/nwg-piotr) for contact info.
