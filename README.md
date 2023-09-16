@@ -36,7 +36,7 @@ Running sway and Hyprland on a VM is possible, but frustrating. You'd need to `e
 
 ## Known issues
 
-After you start the Hyprland session for the first time, the nwg-shell config utility may run more the one instance. I have no clue how why it happens. For now just close spare windows. It should not happen again on consecutive launches.
+After you start the Hyprland session for the first time, the nwg-shell config utility may run more than one instance. I have no clue how why it happens. For now just close spare windows. It should not happen again on consecutive launches.
 
 ## Contact
 
