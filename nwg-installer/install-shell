@@ -24,12 +24,6 @@ echo "         :-.    .:.                "
 echo "          ..                       "
 echo
 
-echo "Adding $USER to video group"
-sudo usermod -aG video $USER
-
-echo Initializing XDG user directories
-xdg-user-dirs-update
-
 echo
 echo "You are about to select components, that need to be preinstalled for the key bindings to work."
 echo "None of them is a shell dependency, and you're free to change them any time later."
@@ -59,18 +53,37 @@ echo
 echo "Installing selection: $fm $editor $browser"
 baph -inN $fm $editor $browser
 
-baph -inN fastfetch-bin
+echo "Adding $USER to video group"
+sudo usermod -aG video $USER
+
+echo Initializing XDG user directories
+xdg-user-dirs-update
+
+echo "Installing bloatware"
+baph -inN fastfetch-bin pacseek swayimg
+
+mkdir -p $HOME/.config/fastfetch && cp /etc/nwg/fastfetch.config.jsonc $_/config.jsonc
 
 echo Installing Simon Ser GPG key, needed by the wlr-randr AUR package
 gpg --recv-key 0FDE7BE0E88F5E48
 
+baph -inN hyprland wlr-randr
+
+VIRT=$(systemd-detect-virt)
+
+if [ "$VIRT" != "none" ]; then
+    sudo sed -i '/^$/a export WLR_NO_HARDWARE_CURSORS=1' /etc/profile
+fi
+
+if [ "$VIRT" == "oracle" ]; then
+    echo "Installing VirtualBox guest utils"
+    sudo pacman -S virtualbox-guest-utils ;
+    sudo systemctl enable vboxservice.service
+fi
+
 sed -i '$ a alias cls='\''clear'\''' ~/.bashrc
 sed -i '$ a alias fetch='\''fastfetch'\''' ~/.bashrc
 sed -i '$ a fastfetch' ~/.bashrc
-
-baph -inN hyprland wlr-randr
-
-mkdir -p $HOME/.config/fastfetch && cp /etc/nwg/fastfetch.config.jsonc $_/config.jsonc
 
 echo Installing nwg-shell
 baph -inN nwg-shell
