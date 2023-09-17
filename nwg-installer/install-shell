@@ -50,14 +50,14 @@ do
 done
 echo
 
-echo "Installing selection: $fm $editor $browser"
-baph -inN $fm $editor $browser
-
 echo "Adding $USER to video group"
 sudo usermod -aG video $USER
 
 echo Initializing XDG user directories
 xdg-user-dirs-update
+
+echo "Installing selection: $fm $editor $browser"
+baph -inN $fm $editor $browser
 
 echo "Installing bloatware"
 baph -inN fastfetch-bin pacseek swayimg
