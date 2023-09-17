@@ -64,8 +64,8 @@ baph -inN fastfetch-bin pacseek-bin swayimg
 
 mkdir -p $HOME/.config/fastfetch && cp /etc/nwg/fastfetch.config.jsonc $_/config.jsonc
 
-echo Installing Simon Ser GPG key, needed by the wlr-randr AUR package
-gpg --recv-key 0FDE7BE0E88F5E48
+# echo Installing Simon Ser GPG key, needed by the wlr-randr AUR package
+# gpg --recv-key 0FDE7BE0E88F5E48
 
 baph -inN hyprland xdg-desktop-portal-hyprland wlr-randr
 
