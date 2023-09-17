@@ -201,9 +201,7 @@ def perform_installation(mountpoint: Path):
 
         installation.genfstab()
 
-        subprocess.Popen("/usr/local/bin/bashrc_modifier.py -a", shell=True)
-
-        info("\nYour computer will now restart. Log in to continue installation.\n")
+        info("\nYour computer will now restart. Log in and type 'install-shell'.\n")
         input("\nPress Enter to continue... ")
 
         # if not archinstall.arguments.get('silent'):
