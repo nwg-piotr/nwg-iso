@@ -7,20 +7,22 @@ This is an Arch Linux ISO built with [archiso](https://wiki.archlinux.org/title/
 ## Installation
 
 1. Download the iso from [SourceForge](https://sourceforge.net/projects/nwg-iso/).
-2. Create USB flash installation medium, as decribed in [Arch Wiki](https://wiki.archlinux.org/title/USB_flash_installation_medium). Or just use SUSE Studio ImageWriter, as I do.
+2. Create USB flash installation medium, as decribed in [Arch Wiki](https://wiki.archlinux.org/title/USB_flash_installation_medium). Or just use SUSE Studio [ImageWriter](https://github.com/openSUSE/imagewriter), as I do.
 3. Boot from the iso, run the `installer` command. Go through the interactive Arch Linux installation.
 4. Reboot.
 5. Run the `install-shell` command. Answer questions on your preferred file manager, text editor and web browser. Wait for the script to finish.
 6. Reboot and you're ready to go.
 
-**Preinstalled stuff:**
-
-- baph - [Basic AUR Package Helper](https://bitbucket.org/natemaia/baph);
-- [sddm](https://wiki.archlinux.org/title/SDDM) Display Manager w/ customized [sddm-sugar-candy-nwg](https://github.com/nwg-piotr/sddm-sugar-candy-nwg) theme;
-- [foot](https://wiki.archlinux.org/title/Foot) terminal emulator (Super+T);
-- [fastfetch](https://github.com/fastfetch-cli/fastfetch) (alias 'fetch') - a fetch tool.
-
 ![image](https://github.com/nwg-piotr/nwg-iso/assets/20579136/14587d6e-f794-4cc7-8830-5a955aaa9776)
+
+**Preinstalled 3rd party stuff:**
+
+- [baph](https://bitbucket.org/natemaia/baph) - Basic AUR Package Helper;
+- [fastfetch](https://github.com/fastfetch-cli/fastfetch) (alias 'fetch') - Like neofetch, but much faster because written in C;
+- [foot](https://wiki.archlinux.org/title/Foot) - Fast, lightweight and minimalistic Wayland terminal emulator (Super+T);
+- [pacseek](https://github.com/moson-mo/pacseek) - TUI for searching and installing Arch Linux packages;
+- [sddm](https://wiki.archlinux.org/title/SDDM) - Display Manager w/ customized [sddm-sugar-candy-nwg](https://github.com/nwg-piotr/sddm-sugar-candy-nwg) theme;
+- [swayimg](https://github.com/artemsen/swayimg) Image viewer for Sway/Wayland.
 
 ## Post-installation
 
@@ -32,7 +34,10 @@ Click the (i) icon in the top panel to see key bindings help. Open the Controls 
 
 ## Testing on a virtual machine
 
-Running sway and Hyprland on a VM is possible, but frustrating. You'd need to `export WLR_NO_HARDWARE_CURSORS=1` in `/etc/profile` to see the mouse pointer, and it would be sluggish and slow-reacting. I highly recommend testing on real hardware. If you still want to test on a VM, remember to enable 3D acceleration and EFI.
+Running sway and Hyprland on a VM is possible, but frustrating. If you use VirtualBox, the installer will add VirtualBox 
+guest utils automatically. The necessary `export WLR_NO_HARDWARE_CURSORS=1` line will be added to `/etc/profile` as well.
+The mouse pointer, however, well be sluggish and slow-reacting. I highly recommend testing on real hardware. 
+If you still want to test on a VM, remember to enable 3D acceleration and EFI.
 
 ## Known issues
 

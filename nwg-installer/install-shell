@@ -60,7 +60,7 @@ echo "Installing selection: $fm $editor $browser"
 baph -inN $fm $editor $browser
 
 echo "Installing bloatware"
-baph -inN fastfetch-bin pacseek swayimg
+baph -inN fastfetch-bin pacseek-bin swayimg
 
 mkdir -p $HOME/.config/fastfetch && cp /etc/nwg/fastfetch.config.jsonc $_/config.jsonc
 
