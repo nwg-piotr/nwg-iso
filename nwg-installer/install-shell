@@ -77,7 +77,7 @@ fi
 
 if [ "$VIRT" == "oracle" ]; then
     echo "Installing VirtualBox guest utils"
-    sudo pacman -S virtualbox-guest-utils ;
+    sudo baph -inN virtualbox-guest-utils ;
     sudo systemctl enable vboxservice.service
 fi
 
