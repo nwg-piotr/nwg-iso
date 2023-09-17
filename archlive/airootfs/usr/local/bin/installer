@@ -155,7 +155,7 @@ def perform_installation(mountpoint: Path):
 
         installation.add_additional_packages(
             ['networkmanager', 'network-manager-applet', 'nano', 'go', 'python-wheel', 'xdg-user-dirs', 'python-dasbus',
-             'sddm', 'baph', 'install-shell', 'sddm-sugar-candy-nwg'])
+             'sddm', 'baph', 'install-shell', 'sddm-sugar-candy-nwg', 'wlr-randr'])
 
         if users := archinstall.arguments.get('!users', None):
             installation.create_users(users)
