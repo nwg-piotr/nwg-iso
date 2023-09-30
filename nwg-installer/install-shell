@@ -9,20 +9,21 @@ fi
 # set -e
 
 echo
-echo "                       .:          "
-echo "               .:-:    :--.        "
-echo "              :-----:. .----.      Welcome to nwg-shell, a GTK3-based user interface for sway and Hyprland Wayland compositors."
-echo "      -:       .------::-----      "
-echo "      ---:       .----------:      This script will prepare your system and install compositors, the shell and all dependencies."
-echo "      -----:       .---------      This may take a while, as most packages come from the Arch User Repository and need to be built."
-echo "      -------:.      .-------      Sit back and wait for the script to finish. Then restart the machine and you're ready to go."
-echo "      ---------:.      .----:      "
-echo "      -----------:.      .---      Copyright (c) 2022-2023 Piotr Miller & Contributors."
-echo "      -----:.-------.      .:      All native shell components are distributed under the terms of the MIT License."
-echo "      .:---.  .-----.              "
-echo "         :-.    .:.                "
-echo "          ..                       "
-echo
+echo "                        .        "
+echo "               .,.     .d:.      "
+echo "   .        .dddddddc. .dddddl     Welcome to nwg-shell, a GTK3-based user interface for sway and Hyprland Wayland compositors."
+echo "   .        .dddddddc. .dddddl     "
+echo "   d:.       .:dddddddc,dddddd.    This script will prepare your system and install compositors, the shell and all dependencies."
+echo "   dddc.       .:ddddddddddddd.    This may take a while, as most packages come from the Arch User Repository and need to be built."
+echo "   dddddc.       .:ddddddddddd.    Sit back and wait for the script to finish. Then restart the machine and you are ready to go."
+echo "   dddddddc.       .:ddddddddd.    "
+echo "   dddddddddc.       .:ddddddd.    "
+echo "   dddddddddddc.       .:ddddd.    "
+echo "   dddddddddddddl.        ;ddd.    Copyright (c) 2022-2023 Piotr Miller & Contributors."
+echo "   dddddd,;dddddddl.        ,o.    All native shell components are distributed under the terms of the MIT License."
+echo "   :ddddd.  ;ddddddd,              "
+echo "    .:ddd.    ;ddd:.               "
+echo "       ;o.      '.                 "
 
 echo
 echo "You are about to select components, that need to be preinstalled for the key bindings to work."
@@ -81,6 +82,15 @@ if [ "$VIRT" == "oracle" ]; then
     sudo systemctl enable vboxservice.service
 fi
 
+# Iterate through all user directories
+for user_dir in /home/*; do
+    # Check if .bashrc file exists for the user
+    if [[ -f "$user_dir/.bashrc" ]]; then
+        # Remove the 'install-shell' string from .bashrc file using sed
+        sudo sed -i '/install-shell/d' "$user_dir/.bashrc"
+    fi
+done
+
 sed -i '$ a alias cls='\''clear'\''' ~/.bashrc
 sed -i '$ a alias fetch='\''fastfetch'\''' ~/.bashrc
 sed -i '$ a fastfetch' ~/.bashrc
@@ -88,7 +98,7 @@ sed -i '$ a fastfetch' ~/.bashrc
 echo Installing nwg-shell
 baph -inN nwg-shell
 
-echo "Enabling display manager"
+echo "Enabling sddm display manager"
 sudo systemctl enable sddm.service
 
 nwg-shell-installer -w -hypr
