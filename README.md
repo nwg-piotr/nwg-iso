@@ -11,9 +11,8 @@ This is an Arch Linux ISO built with [archiso](https://wiki.archlinux.org/title/
 1. Download the iso from [SourceForge](https://sourceforge.net/projects/nwg-iso/).
 2. Create USB flash installation medium, as decribed in [Arch Wiki](https://wiki.archlinux.org/title/USB_flash_installation_medium). Or just use SUSE Studio [ImageWriter](https://github.com/openSUSE/imagewriter), as I do.
 3. Boot from the iso, run the `installer` command. Go through the interactive Arch Linux installation.
-4. Reboot.
-5. Run the `install-shell` command. Answer questions on your preferred file manager, text editor and web browser. Wait for the script to finish.
-6. Reboot and you're ready to go.
+4. Reboot and login as a user with sudo privilleges. Wait for the script to finish installation.
+5. Reboot and you're ready to go.
 
 ![image](https://github.com/nwg-piotr/nwg-iso/assets/20579136/14587d6e-f794-4cc7-8830-5a955aaa9776)
 
