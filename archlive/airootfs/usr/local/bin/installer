@@ -182,7 +182,7 @@ def perform_installation(mountpoint: Path):
         if (root_pw := archinstall.arguments.get('!root-password', None)) and len(root_pw):
             installation.user_set_pw('root', root_pw)
 
-        # This step must be after profile installs to allow profiles_bck to install language pre-requisits.
+        # This step must be after profile installs to allow profiles_bck to install language pre-requisites.
         # After which, this step will set the language both for console and x11 if x11 was installed for instance.
         installation.set_keyboard_language(locale_config.kb_layout)
 
@@ -206,21 +206,12 @@ def perform_installation(mountpoint: Path):
         if not isinstance(users, list):
             users = [users]
 
+        # add `install-shell` to all users' ~/.bashrc (will be removed during further installation)
         for user in users:
             installation.arch_chroot("sed -i '$ a install-shell' ~/.bashrc", run_as=user.username)
 
-        info("\nYour computer will now restart. Log in as a user with sudo privileges.\n")
+        info("\nYour computer will now restart. Log in as a user with sudo privileges to continue installation.\n")
         input("\nPress Enter to continue... ")
-
-        # if not archinstall.arguments.get('silent'):
-        #     prompt = str(
-        #         _('Would you like to chroot into the newly created installation and perform post-installation configuration?'))
-        #     choice = menu.Menu(prompt, menu.Menu.yes_no(), default_option=menu.Menu.yes()).run()
-        #     if choice.value == menu.Menu.yes():
-        #         try:
-        #             installation.drop_to_shell()
-        #         except Exception:
-        #             pass
 
         subprocess.Popen("/usr/bin/reboot", shell=True)
 
