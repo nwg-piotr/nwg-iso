@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Optional
+from typing import List, TYPE_CHECKING, Union, Any, Optional
 
 import archinstall
 import os
@@ -17,6 +17,7 @@ from archinstall import locale
 from archinstall import info, debug
 from archinstall.default_profiles.minimal import MinimalProfile
 from archinstall.lib.networking import check_mirror_reachable
+from archinstall.lib.models import User
 
 if TYPE_CHECKING:
     _: Any
@@ -173,7 +174,7 @@ def perform_installation(mountpoint: Path):
             installation.set_timezone(timezone)
 
         if archinstall.arguments.get('ntp', False):
-            installation.activate_time_syncronization()
+            installation.activate_time_synchronization()
 
         if archinstall.accessibility_tools_in_use():
             installation.enable_espeakup()
@@ -201,7 +202,14 @@ def perform_installation(mountpoint: Path):
 
         installation.genfstab()
 
-        info("\nYour computer will now restart. Log in and type 'install-shell'.\n")
+        users: Union[User, List[User]] = archinstall.arguments.get('!users', [])
+        if not isinstance(users, list):
+            users = [users]
+
+        for user in users:
+            installation.arch_chroot("sed -i '$ a install-shell' ~/.bashrc", run_as=user.username)
+
+        info("\nYour computer will now restart. Log in as a user with sudo privileges.\n")
         input("\nPress Enter to continue... ")
 
         # if not archinstall.arguments.get('silent'):
