@@ -78,14 +78,14 @@ fi
 
 if [ "$VIRT" == "oracle" ]; then
     echo "Installing VirtualBox guest utils"
-    sudo baph -inN virtualbox-guest-utils ;
+    baph -inN virtualbox-guest-utils ;
     sudo systemctl enable vboxservice.service
 fi
 
 # Iterate through all user directories
 for user_dir in /home/*; do
     # Check if .bashrc file exists for the user
-    if [[ -f "$user_dir/.bashrc" ]]; then
+    if sudo test -f "$user_dir/.bashrc"; then
         # Remove the 'install-shell' string from .bashrc file using sed
         sudo sed -i '/install-shell/d' "$user_dir/.bashrc"
     fi
