@@ -33,7 +33,7 @@ On first run of as well sway, as Hyprland, the shell config utility will be auto
 
 Click the (i) icon in the top panel to see key bindings help. Open the Controls menu in the top panel to see more configuration tools.
 
-## Multiple use accounts
+## Multiple user accounts
 
 To set up nwg-shell config files on another user's account:
 
