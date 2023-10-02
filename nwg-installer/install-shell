@@ -81,16 +81,16 @@ for user_dir in /home/*; do
     # Copy fastfetch config
     mkdir -p $user_dir/.config/fastfetch && cp /etc/nwg/fastfetch.config.jsonc $_/config.jsonc
 
-    # Remove 'install-shell' from .bashrc files
+    # Modify .bashrc files
     if sudo test -f "$user_dir/.bashrc"; then
         # Remove the 'install-shell' string from .bashrc file using sed
         sudo sed -i '/install-shell/d' "$user_dir/.bashrc"
+        # Add aliases
+        sudo sed -i '$ a alias cls='\''clear'\''' "$user_dir/.bashrc"
+        sudo sed -i '$ a alias fetch='\''fastfetch'\''' "$user_dir/.bashrc"
+        sudo sed -i '$ a fastfetch' "$user_dir/.bashrc"
     fi
 done
-
-sed -i '$ a alias cls='\''clear'\''' ~/.bashrc
-sed -i '$ a alias fetch='\''fastfetch'\''' ~/.bashrc
-sed -i '$ a fastfetch' ~/.bashrc
 
 echo Installing nwg-shell
 baph -inN nwg-shell
