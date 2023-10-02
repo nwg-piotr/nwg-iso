@@ -5,6 +5,26 @@ if [ "$(id -u)" == 0 ] ; then
    exit 1
 fi
 
+function yes_or_no {
+    while true; do
+        read -r -p "$* [Y/n]: " yn
+        case $yn in
+            [Yy]|"") choice="Y" ; return 0 ;;
+            [Nn]*) choice="n" ; return 0 ;;
+        esac
+    done
+}
+
+echo "If you want to execute any custom commands, stop the installation now. You will be able to run it again."
+yes_or_no "Install sway, Hyprland and nwg-shell now?"
+
+if ! [ "$choice" == "Y" ] ; then
+   echo "You can restart the installation with the 'install-shell' command."
+   exit 0
+fi
+
+clear
+
 echo
 echo "                        .        "
 echo "               .,.     .d:.      "
