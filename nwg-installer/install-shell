@@ -48,23 +48,22 @@ do
 done
 echo
 
-echo "Adding $USER to video group"
-sudo usermod -aG video $USER
-
-echo Initializing XDG user directories
-xdg-user-dirs-update
-
 echo "Installing selection: $fm $editor $browser"
 baph -inN $fm $editor $browser
+
+echo "Initializing XDG user directories"
+xdg-user-dirs-update
 
 echo "Installing CLI tools"
 baph -inN fastfetch-bin pacseek-bin swayimg
 
+echo "Installing Hyprland"
 baph -inN hyprland xdg-desktop-portal-hyprland
 
 VIRT=$(systemd-detect-virt)
 
 if [ "$VIRT" != "none" ]; then
+    echo "Modifying /etc/profile"
     sudo sed -i '/^$/a export WLR_NO_HARDWARE_CURSORS=1' /etc/profile
 fi
 
@@ -76,9 +75,13 @@ fi
 
 # Iterate through all user directories
 for user_dir in /home/*; do
+    # Add users to the video group
+    sudo usermod -aG video "${user_dir##*/}"
+
     # Copy fastfetch config
     mkdir -p $user_dir/.config/fastfetch && cp /etc/nwg/fastfetch.config.jsonc $_/config.jsonc
-    # Check if .bashrc file exists for the user
+
+    # Remove 'install-shell' from .bashrc files
     if sudo test -f "$user_dir/.bashrc"; then
         # Remove the 'install-shell' string from .bashrc file using sed
         sudo sed -i '/install-shell/d' "$user_dir/.bashrc"
