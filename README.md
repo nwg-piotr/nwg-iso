@@ -33,6 +33,13 @@ On first run of as well sway, as Hyprland, the shell config utility will be auto
 
 Click the (i) icon in the top panel to see key bindings help. Open the Controls menu in the top panel to see more configuration tools.
 
+## Multiple use accounts
+
+To set up nwg-shell config files on another user's account:
+
+1. Log in as another user in console;
+2. execute the `nwg-shell-installer -w -hypr` command.
+
 ## Testing on a virtual machine
 
 Running sway and Hyprland on a VM is possible, but frustrating. If you use VirtualBox, the installer will add VirtualBox 
