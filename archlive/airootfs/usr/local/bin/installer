@@ -155,8 +155,8 @@ def perform_installation(mountpoint: Path):
             installation.add_additional_packages(archinstall.arguments.get('packages', []))
 
         installation.add_additional_packages(
-            ['networkmanager', 'network-manager-applet', 'nano', 'go', 'python-wheel', 'xdg-user-dirs', 'python-dasbus',
-             'sddm', 'baph', 'install-shell', 'sddm-sugar-candy-nwg', 'wlr-randr'])
+            ['networkmanager', 'network-manager-applet', 'iwd', 'nano', 'go', 'python-wheel', 'xdg-user-dirs',
+             'python-dasbus', 'sddm', 'baph', 'install-shell', 'sddm-sugar-candy-nwg', 'wlr-randr'])
 
         if users := archinstall.arguments.get('!users', None):
             installation.create_users(users)
@@ -194,7 +194,7 @@ def perform_installation(mountpoint: Path):
         # if archinstall.arguments.get('services', None):
         #     installation.enable_service(archinstall.arguments.get('services', []))
 
-        installation.enable_service('NetworkManager.service')
+        installation.enable_service(['NetworkManager.service', 'iwd.service'])
 
         # If the user provided custom commands to be run post-installation, execute them now.
         if archinstall.arguments.get('custom-commands', None):
