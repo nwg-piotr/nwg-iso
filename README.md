@@ -16,14 +16,22 @@ This is an Arch Linux ISO built with [archiso](https://wiki.archlinux.org/title/
 
 ![image](https://github.com/nwg-piotr/nwg-iso/assets/20579136/14587d6e-f794-4cc7-8830-5a955aaa9776)
 
-**Preinstalled 3rd party stuff:**
+**Preinstalled terminal emulator:**
+
+- [foot](https://wiki.archlinux.org/title/Foot) - Fast, lightweight and minimalistic Wayland terminal emulator (Super+T);
+
+**Preinstalled CLI stuff:**
 
 - [baph](https://bitbucket.org/natemaia/baph) - Basic AUR Package Helper;
-- [fastfetch](https://github.com/fastfetch-cli/fastfetch) (alias 'fetch') - Like neofetch, but much faster because written in C;
-- [foot](https://wiki.archlinux.org/title/Foot) - Fast, lightweight and minimalistic Wayland terminal emulator (Super+T);
+- [fastfetch](https://github.com/fastfetch-cli/fastfetch) - Like neofetch, but much faster because written in C;
 - [pacseek](https://github.com/moson-mo/pacseek) - TUI for searching and installing Arch Linux packages;
-- [sddm](https://wiki.archlinux.org/title/SDDM) - Display Manager w/ customized [sddm-sugar-candy-nwg](https://github.com/nwg-piotr/sddm-sugar-candy-nwg) theme;
-- [swayimg](https://github.com/artemsen/swayimg) Image viewer for Sway/Wayland.
+- [swayimg](https://github.com/artemsen/swayimg) - Image viewer for Sway/Wayland;
+- `screeshot [fullscreen | region | focused | display]` - Script for taking screenshots.
+
+**Aliases:**
+
+- `cls` for `clear
+- `fetch` for `fastfetch`
 
 ## Post-installation
 
