@@ -30,7 +30,7 @@ This is an Arch Linux ISO built with [archiso](https://wiki.archlinux.org/title/
 
 **Aliases:**
 
-- `cls` for `clear
+- `cls` for `clear`
 - `fetch` for `fastfetch`
 
 ## Post-installation
