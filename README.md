@@ -55,10 +55,6 @@ guest utils automatically. The necessary `export WLR_NO_HARDWARE_CURSORS=1` line
 The mouse pointer, however, well be sluggish and slow-reacting. I highly recommend testing on real hardware. 
 If you still want to test on a VM, remember to enable 3D acceleration and EFI.
 
-## Known issues
-
-After you start the Hyprland session for the first time, the nwg-shell config utility may run more than one instance. I have no clue how why it happens. For now just close spare windows. It should not happen again on consecutive launches.
-
 ## Contact
 
 See my [GitHub profile](https://github.com/nwg-piotr) for contact info.
