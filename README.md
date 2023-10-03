@@ -20,7 +20,7 @@ This is an Arch Linux ISO built with [archiso](https://wiki.archlinux.org/title/
 
 - [foot](https://wiki.archlinux.org/title/Foot) - Fast, lightweight and minimalistic Wayland terminal emulator (Super+T);
 
-**Preinstalled CLI stuff:**
+**Preinstalled CLI tools:**
 
 - [baph](https://bitbucket.org/natemaia/baph) - Basic AUR Package Helper;
 - [fastfetch](https://github.com/fastfetch-cli/fastfetch) - Like neofetch, but much faster because written in C;
