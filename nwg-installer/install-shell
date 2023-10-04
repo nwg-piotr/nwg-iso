@@ -105,10 +105,20 @@ for user_dir in /home/*; do
     if sudo test -f "$user_dir/.bashrc"; then
         # Remove the 'install-shell' string from .bashrc file using sed
         sudo sed -i '/install-shell/d' "$user_dir/.bashrc"
+
         # Add aliases
-        sudo sed -i '$ a alias cls='\''clear'\''' "$user_dir/.bashrc"
-        sudo sed -i '$ a alias fetch='\''fastfetch'\''' "$user_dir/.bashrc"
-        sudo sed -i '$ a fastfetch' "$user_dir/.bashrc"
+        if ! grep -q 'alias fetch' ~/.bashrc; then
+            echo 'alias fetch=fastfetch' >> ~/.bashrc;
+        fi
+
+        if ! grep -q 'alias cls' ~/.bashrc; then
+            echo 'alias cls=clear' >> ~/.bashrc;
+        fi
+
+        # Add fastfetch
+        if ! grep -q 'fastfetch' ~/.bashrc; then
+            echo 'fastfetch' >> ~/.bashrc;
+        fi
     fi
 done
 
