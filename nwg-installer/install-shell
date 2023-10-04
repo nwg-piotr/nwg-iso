@@ -123,7 +123,7 @@ for user_dir in /home/*; do
 done
 
 echo Installing nwg-shell
-baph -inN nwg-shell
+baph -inN nwg-shell-git
 
 echo "Enabling sddm display manager"
 sudo systemctl enable sddm.service
