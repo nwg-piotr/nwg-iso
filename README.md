@@ -16,14 +16,22 @@ This is an Arch Linux ISO built with [archiso](https://wiki.archlinux.org/title/
 
 ![image](https://github.com/nwg-piotr/nwg-iso/assets/20579136/14587d6e-f794-4cc7-8830-5a955aaa9776)
 
-**Preinstalled 3rd party stuff:**
+**Preinstalled terminal emulator:**
+
+- [foot](https://wiki.archlinux.org/title/Foot) - Fast, lightweight and minimalistic Wayland terminal emulator (Super+T);
+
+**Preinstalled CLI tools:**
 
 - [baph](https://bitbucket.org/natemaia/baph) - Basic AUR Package Helper;
-- [fastfetch](https://github.com/fastfetch-cli/fastfetch) (alias 'fetch') - Like neofetch, but much faster because written in C;
-- [foot](https://wiki.archlinux.org/title/Foot) - Fast, lightweight and minimalistic Wayland terminal emulator (Super+T);
+- [fastfetch](https://github.com/fastfetch-cli/fastfetch) - Like neofetch, but much faster because written in C;
 - [pacseek](https://github.com/moson-mo/pacseek) - TUI for searching and installing Arch Linux packages;
-- [sddm](https://wiki.archlinux.org/title/SDDM) - Display Manager w/ customized [sddm-sugar-candy-nwg](https://github.com/nwg-piotr/sddm-sugar-candy-nwg) theme;
-- [swayimg](https://github.com/artemsen/swayimg) Image viewer for Sway/Wayland.
+- [swayimg](https://github.com/artemsen/swayimg) - Image viewer for Sway/Wayland;
+- `screeshot [fullscreen | region | focused | display]` - Script for taking screenshots.
+
+**Aliases:**
+
+- `cls` for `clear`
+- `fetch` for `fastfetch`
 
 ## Post-installation
 
@@ -46,10 +54,6 @@ Running sway and Hyprland on a VM is possible, but frustrating. If you use Virtu
 guest utils automatically. The necessary `export WLR_NO_HARDWARE_CURSORS=1` line will be added to `/etc/profile` as well.
 The mouse pointer, however, well be sluggish and slow-reacting. I highly recommend testing on real hardware. 
 If you still want to test on a VM, remember to enable 3D acceleration and EFI.
-
-## Known issues
-
-After you start the Hyprland session for the first time, the nwg-shell config utility may run more than one instance. I have no clue how why it happens. For now just close spare windows. It should not happen again on consecutive launches.
 
 ## Contact
 
