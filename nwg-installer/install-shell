@@ -107,10 +107,6 @@ for user_dir in /home/*; do
         sudo sed -i '/install-shell/d' "$user_dir/.bashrc"
 
         # Add aliases
-        if ! grep -q 'alias fetch' ~/.bashrc; then
-            echo 'alias fetch=fastfetch' >> ~/.bashrc;
-        fi
-
         if ! grep -q 'alias cls' ~/.bashrc; then
             echo 'alias cls=clear' >> ~/.bashrc;
         fi
@@ -123,7 +119,7 @@ for user_dir in /home/*; do
 done
 
 echo Installing nwg-shell
-baph -inN nwg-shell-git
+baph -inN nwg-shell
 
 echo "Enabling sddm display manager"
 sudo systemctl enable sddm.service
