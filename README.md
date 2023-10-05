@@ -31,11 +31,10 @@ This is an Arch Linux ISO built with [archiso](https://wiki.archlinux.org/title/
 **Aliases:**
 
 - `cls` for `clear`
-- `fetch` for `fastfetch`
 
 ## Post-installation
 
-On first run of as well sway, as Hyprland, the shell config utility will be auto-started. Review your settings here. Uncheck the 'Show on startup` box for the config utility not to be auto-started any longer. Don't forget to press the "Apply" button, or the file manager, text editor and web browser keyboard bindings will not work.
+On first run of as well sway, as Hyprland, the shell config utility will be auto-started. Review your settings here. Pay attention to the kayboard layout and Applications settings. Uncheck the 'Show on startup` box and apply, for the config utility not to be auto-started any longer.
 
 ![2023-09-16-001157_hypr_screenshot](https://github.com/nwg-piotr/nwg-iso/assets/20579136/a11a9786-558e-4567-a7f4-8b2a5226032c)
 
