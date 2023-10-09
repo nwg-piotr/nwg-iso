@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2034
 
-iso_name="archlinux-nwg"
-iso_label="NWG_$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y%m%d)"
+iso_name="nwg-live"
+iso_label="NWG-LIVE_$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y%m%d)"
 iso_publisher="Piotr Miller <https://nwg-piotr.github.io/nwg-shell>"
-iso_application="Arch Linux Live/Rescue CD w/ nwg-shell installer"
+iso_application="Arch Linux w/ nwg-shell Live/Installer CD"
 iso_version="$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y.%m.%d)"
 install_dir="arch"
 buildmodes=('iso')
@@ -24,4 +24,8 @@ file_permissions=(
   ["/usr/local/bin/Installation_guide"]="0:0:755"
   ["/usr/local/bin/livecd-sound"]="0:0:755"
   ["/usr/local/bin/installer"]="0:0:755"
+  ["/etc/sudoers"]="0:0:0400"
+  ["/etc/gshadow"]="0:0:0400"
+  ["/etc/skel/.azotebg"]="0:0:755"
+  ["/etc/skel/.azotebg-hyprland"]="0:0:755"
 )

@@ -1,0 +1,5 @@
+[Default Applications]
+application/octet-stream=org.xfce.mousepad.desktop
+
+[Added Associations]
+application/octet-stream=org.xfce.mousepad.desktop;

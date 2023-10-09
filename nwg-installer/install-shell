@@ -47,13 +47,6 @@ echo "You are about to select components, that need to be preinstalled for the k
 echo "None of them is a shell dependency, and you're free to change them any time later."
 echo
 
-PS3="Select file manager: "
-select fm in thunar caja dolphin nautilus nemo pcmanfm;
-do
-    break
-done
-echo
-
 PS3="Select text editor: "
 select editor in mousepad atom emacs gedit geany kate vim;
 do
@@ -68,8 +61,8 @@ do
 done
 echo
 
-echo "Installing selection: $fm $editor $browser"
-baph -inN $fm $editor $browser
+echo "Installing selection: thunar $editor $browser"
+baph -inN $editor $browser
 
 echo "Initializing XDG user directories"
 xdg-user-dirs-update
