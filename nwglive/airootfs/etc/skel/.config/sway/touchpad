@@ -1,0 +1,13 @@
+input "type:touchpad" {
+  pointer_accel 0.0
+  natural_scroll disabled
+  scroll_factor 1.0
+  scroll_method two_finger
+  left_handed disabled
+  tap enabled
+  tap_button_map lrm
+  drag enabled
+  drag_lock disabled
+  dwt enabled
+  middle_emulation enabled
+}

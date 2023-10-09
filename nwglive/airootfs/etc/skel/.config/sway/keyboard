@@ -1,0 +1,7 @@
+input "type:keyboard" {
+  xkb_layout pl
+  repeat_delay 300
+  repeat_rate 40
+  xkb_capslock disabled
+  xkb_numlock disabled
+}

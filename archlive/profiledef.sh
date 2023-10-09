@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2034
 
-iso_name="archlinux-nwg"
-iso_label="NWG_$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y%m%d)"
+iso_name="nwg-mini"
+iso_label="NWG-MINI_$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y%m%d)"
 iso_publisher="Piotr Miller <https://nwg-piotr.github.io/nwg-shell>"
 iso_application="Arch Linux Live/Rescue CD w/ nwg-shell installer"
 iso_version="$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y.%m.%d)"

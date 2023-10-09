@@ -1,0 +1,39 @@
+<span face="monospace"><b>[S]*+t/[S]+F2</b> ..................... Terminal
+<b>[S]+W</b> .......................... Web browser
+<b>[S]+E</b> .......................... Text editor
+<b>[S]+F</b> ......................... File manager
+<b>[Alt]+D</b> ..................... Dock show/hide
+<b>[Alt]+F1</b> ................ Application drawer
+<b>[S]+F1</b> ...................... Show/hide help
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+<b>[Alt]+Q/[Alt]+F4</b> ............... Kill window
+<b>[S]+X</b> ............................ Exit menu
+<b>[S]+L</b> .......................... Lock screen
+<b>[S]+[Shift]+C</b> .............. Reload Hyprland
+<b>[S]+[Shift]+M</b> ................ Exit Hyprland
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+<b>[S]+LMB</b> ........................ Move window
+<b>[S]+RMB</b> ...................... Resize window
+<b>[S]+number</b> ................ Switch workspace
+<b>[S]+[Shift]+number</b> ....... Move to workspace
+<b>[S]+arrow</b> ....................... Move focus
+<b>[S]+scroll</b> ....... Scroll through workspaces
+<b>[S]+Space</b> .................. Toggle floating
+<b>[S]+[Shift]+F</b> ................... Fullscreen
+<b>[S]+I</b> ........................... Pin window
+<b>[S]+[Shift]+Z</b> .... Move to special workspace
+<b>[S]+Z</b> ............. Toggle special workspace
+Dwindle⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+<b>[Alt]+Tab</b> ..................... Toggle split
+<b>[S]+P</b> ............................... Pseudo
+Master⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+<b>[S]+A</b> ....................... Focus previous
+<b>[S]+S</b> ....................... Swap w/ master
+<b>[S]+D</b> ........................... Focus next
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+<b>PrtScr</b> .......................... Screenshot
+<b>[Ctrl]+PrtScr</b> ........... Screenshot display
+<b>[Shift]+[Ctrl]+PrtScr</b> ........ S-shot region
+<b>[S]+[Shift]+[Ctrl]+PrtScr</b> .... S-shot window</span>
+
+<span face="monospace" size="small">*[S] = Super/Win key</span>

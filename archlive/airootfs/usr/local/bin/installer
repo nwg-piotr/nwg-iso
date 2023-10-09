@@ -156,80 +156,82 @@ def perform_installation(mountpoint: Path):
 
         installation.add_additional_packages(
             ['networkmanager', 'network-manager-applet', 'iwd', 'nano', 'go', 'python-wheel', 'xdg-user-dirs',
-             'python-dasbus', 'sddm', 'baph', 'install-shell', 'sddm-sugar-candy-nwg', 'wlr-randr'])
+             'python-dasbus', 'sddm', 'udisks2', 'thunar', 'thunar-volman', 'gvfs', 'baph', 'install-shell',
+             'sddm-sugar-candy-nwg', 'wlr-randr'])
 
         if users := archinstall.arguments.get('!users', None):
             installation.create_users(users)
 
-        audio_config: Optional[models.AudioConfiguration] = archinstall.arguments.get('audio_config', None)
-        if audio_config:
-            audio_config.install_audio_config(installation)
-        else:
-            info("No audio server will be installed")
+    audio_config: Optional[models.AudioConfiguration] = archinstall.arguments.get('audio_config', None)
+    if audio_config:
+        audio_config.install_audio_config(installation)
+    else:
+        info("No audio server will be installed")
 
-        profile_config = profile.ProfileConfiguration(MinimalProfile())
-        profile.profile_handler.install_profile_config(installation, profile_config)
+    profile_config = profile.ProfileConfiguration(MinimalProfile())
+    profile.profile_handler.install_profile_config(installation, profile_config)
 
-        if timezone := archinstall.arguments.get('timezone', None):
-            installation.set_timezone(timezone)
+    if timezone := archinstall.arguments.get('timezone', None):
+        installation.set_timezone(timezone)
 
-        if archinstall.arguments.get('ntp', False):
-            installation.activate_time_synchronization()
+    if archinstall.arguments.get('ntp', False):
+        installation.activate_time_synchronization()
 
-        if archinstall.accessibility_tools_in_use():
-            installation.enable_espeakup()
+    if archinstall.accessibility_tools_in_use():
+        installation.enable_espeakup()
 
-        if (root_pw := archinstall.arguments.get('!root-password', None)) and len(root_pw):
-            installation.user_set_pw('root', root_pw)
+    if (root_pw := archinstall.arguments.get('!root-password', None)) and len(root_pw):
+        installation.user_set_pw('root', root_pw)
 
-        # This step must be after profile installs to allow profiles_bck to install language pre-requisites.
-        # After which, this step will set the language both for console and x11 if x11 was installed for instance.
-        installation.set_keyboard_language(locale_config.kb_layout)
+    # This step must be after profile installs to allow profiles_bck to install language pre-requisites.
+    # After which, this step will set the language both for console and x11 if x11 was installed for instance.
+    installation.set_keyboard_language(locale_config.kb_layout)
 
-        if profile_config := archinstall.arguments.get('profile_config', None):
-            profile_config.profile.post_install(installation)
+    if profile_config := archinstall.arguments.get('profile_config', None):
+        profile_config.profile.post_install(installation)
 
-        # If the user provided a list of services to be enabled, pass the list to the enable_service function.
-        # Note that while it's called enable_service, it can actually take a list of services and iterate it.
-        # if archinstall.arguments.get('services', None):
-        #     installation.enable_service(archinstall.arguments.get('services', []))
+    # If the user provided a list of services to be enabled, pass the list to the enable_service function.
+    # Note that while it's called enable_service, it can actually take a list of services and iterate it.
+    # if archinstall.arguments.get('services', None):
+    #     installation.enable_service(archinstall.arguments.get('services', []))
 
-        installation.enable_service(['NetworkManager.service', 'iwd.service'])
+    installation.enable_service(['NetworkManager.service', 'iwd.service'])
 
-        # If the user provided custom commands to be run post-installation, execute them now.
-        if archinstall.arguments.get('custom-commands', None):
-            archinstall.run_custom_user_commands(archinstall.arguments['custom-commands'], installation)
+    # If the user provided custom commands to be run post-installation, execute them now.
+    if archinstall.arguments.get('custom-commands', None):
+        archinstall.run_custom_user_commands(archinstall.arguments['custom-commands'], installation)
 
-        installation.genfstab()
+    installation.genfstab()
 
-        users: Union[User, List[User]] = archinstall.arguments.get('!users', [])
-        if not isinstance(users, list):
-            users = [users]
+    users: Union[User, List[User]] = archinstall.arguments.get('!users', [])
+    if not isinstance(users, list):
+        users = [users]
 
-        # add `install-shell` to all users' ~/.bashrc (will be removed during further installation)
-        for user in users:
-            installation.arch_chroot("sed -i '$ a install-shell' ~/.bashrc", run_as=user.username)
+    # add `install-shell` to all users' ~/.bashrc (will be removed during further installation)
+    for user in users:
+        installation.arch_chroot("sed -i '$ a install-shell' ~/.bashrc", run_as=user.username)
 
-        info("\nYour computer will now restart. Log in as a user with sudo privileges to continue installation.\n")
-        input("\nPress Enter to continue... ")
+    info("\nYour computer will now restart. Log in as a user with sudo privileges to continue installation.\n")
+    input("\nPress Enter to continue... ")
 
-        subprocess.Popen("/usr/bin/reboot", shell=True)
+    subprocess.Popen("/usr/bin/reboot", shell=True)
 
     debug(f"Disk states after installing: {disk.disk_layouts()}")
 
-
-if archinstall.arguments.get('skip-mirror-check', False) is False and check_mirror_reachable() is False:
-    log_file = os.path.join(archinstall.storage.get('LOG_PATH', None), archinstall.storage.get('LOG_FILE', None))
-    info(f"Arch Linux mirrors are not reachable. Please check your internet connection and the log file '{log_file}'.")
+    if archinstall.arguments.get('skip-mirror-check', False) is False and check_mirror_reachable() is False:
+        log_file = os.path.join(archinstall.storage.get('LOG_PATH', None),
+                                archinstall.storage.get('LOG_FILE', None))
+    info(
+        f"Arch Linux mirrors are not reachable. Please check your internet connection and the log file '{log_file}'.")
     exit(1)
 
-ask_user_questions()
+    ask_user_questions()
 
-fs_handler = disk.FilesystemHandler(
-    archinstall.arguments['disk_config'],
-    archinstall.arguments.get('disk_encryption', None)
-)
+    fs_handler = disk.FilesystemHandler(
+        archinstall.arguments['disk_config'],
+        archinstall.arguments.get('disk_encryption', None)
+    )
 
-fs_handler.perform_filesystem_operations()
+    fs_handler.perform_filesystem_operations()
 
-perform_installation(archinstall.storage.get('MOUNT_POINT', Path('/mnt')))
+    perform_installation(archinstall.storage.get('MOUNT_POINT', Path('/mnt')))
