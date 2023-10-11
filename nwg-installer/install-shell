@@ -61,13 +61,13 @@ do
 done
 echo
 
-echo "Installing selection: thunar $editor $browser"
+echo "Installing thunar $editor $browser"
 baph -inN $editor $browser
 
 echo "Initializing XDG user directories"
 xdg-user-dirs-update
 
-echo "Installing CLI tools"
+echo "Installing CLI/TUI tools"
 baph -inN fastfetch-bin pacseek-bin swayimg
 
 echo "Installing Hyprland"
@@ -112,7 +112,7 @@ for user_dir in /home/*; do
 done
 
 echo Installing nwg-shell
-baph -inN nwg-shell-git
+baph -inN nwg-shell
 
 echo "Enabling sddm display manager"
 sudo systemctl enable sddm.service
