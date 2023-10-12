@@ -4,7 +4,15 @@ This repository is a part of the nwg-shell project. Please check the [project we
 
 [![Download nwg-iso](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/nwg-iso)
 
-This is an Arch Linux ISO built with [archiso](https://wiki.archlinux.org/title/Archiso), with additions to provide a simple way to install nwg-shell, together with sway and Hyprland Wayland compositors. The live environment (CLI) comes with the `installer` command, which is a simplified version of the interactive installation with the [archinstall](https://python-archinstall.readthedocs.io/en/latest/installing/guided.html#description-individual-steps) script. Some must have stuff has already been pre-selected. The iso also provides a script to install the shell itself - from the user account. Some packages (installer, AUR helper, customized sddm theme and `python-dasbus`) have been provided in a local repository. Besides, we only use Arch and AUR repositories.
+The nwg-iso project provides two ISO images built with [archiso](https://wiki.archlinux.org/title/Archiso), with additions to ensure a simple way to install [Arch Linux](https://archlinux.org), [sway](https://swaywm.org/) & [Hyprland](https://hyprland.org/) Wayland compositors, and the [nwg-shell](https://nwg-piotr.github.io/nwg-shell) toolbox.
+
+## nwg-mini
+
+The live environment (CLI) comes with the installer command, which is a simplified version of the interactive installation with the archinstall script. Some must have stuff has already been pre-selected. The iso also provides a script to install the shell itself - from the user account. Some packages (installer, AUR helper, customized sddm theme, python-dasbus and wlr-randr) have been enclosed in a local repository. Besides, we only use Arch and AUR repositories. See the web site for more info.
+
+## nwg-live
+
+This ISO comes with live Hyprland/sway environment, so that you can test compositors and the shell before installation. The installer is still the same, but will run inside the terminal emulator. Please find the "Installer" item in the top panel menu.
 
 ## Installation
 
