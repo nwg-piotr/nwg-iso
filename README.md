@@ -30,10 +30,11 @@ This ISO comes with live Hyprland/sway environment, so that you can test composi
 
 1. Download the nwg-live ISO.
 2. Create USB flash installation medium, as described above.
-3. Boot from the flash drive, enjoy the live sway and Hyprland environment.
-4. If you decide to install, find the "Installer" item in the top panel menu. Go through the interactive Arch Linux installation.
-5. Reboot and login as a user with sudo privilleges. Wait for the script to finish installation.
-6. Reboot and you're ready to go.
+3. Boot from the flash drive, enjoy the live sway and Hyprland environment. **User**: `nwg` **Password**: `nwg`
+   
+5. If you decide to install, find the "Installer" item in the top panel menu. Go through the interactive Arch Linux installation.
+6. Reboot and login as a user with sudo privilleges. Wait for the script to finish installation.
+7. Reboot and you're ready to go.
 
 ## Post-installation
 
