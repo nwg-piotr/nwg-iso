@@ -8,7 +8,7 @@ The nwg-iso project provides two ISO images built with [archiso](https://wiki.ar
 
 ## nwg-mini
 
-The live environment (CLI) comes with the `installer` command, which is a simplified version of the interactive installation with the [archinstall](https://github.com/archlinux/archinstall) script. Some must have stuff has already been pre-selected. The iso also provides a script to install the shell itself - from the user account. Some packages (installer, AUR helper, customized sddm theme, python-dasbus and wlr-randr) have been enclosed in a local repository. Besides, we only use Arch and AUR repositories. See the web site for more info.
+The live environment (CLI) comes with the `installer` command, which is a simplified version of the interactive installation with the [archinstall](https://github.com/archlinux/archinstall) script. Some must have stuff has already been pre-selected. The iso also provides a script to install the shell itself - from the user account. Some packages (installer, AUR helper, customized sddm theme, python-dasbus and wlr-randr) have been enclosed in a local repository. Besides, we only use Arch and AUR repositories.
 
 ## nwg-live
 
