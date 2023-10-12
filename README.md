@@ -37,7 +37,7 @@ This ISO comes with live Hyprland/sway environment, so that you can test composi
 
 ## Post-installation
 
-On first run of as well sway, as Hyprland, the shell config utility will be auto-started. Review your settings here. Pay attention to the keyboard layout and Applications settings. Uncheck the 'Show on startup` box and apply, for the config utility not to be auto-started any longer.
+Find the 'Shell settings' item in the top panel menu. Review your settings here.
 
 ![2023-09-16-001157_hypr_screenshot](https://github.com/nwg-piotr/nwg-iso/assets/20579136/a11a9786-558e-4567-a7f4-8b2a5226032c)
 
