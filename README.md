@@ -31,7 +31,7 @@ This ISO comes with live Hyprland/sway environment, so that you can test composi
 1. Download the nwg-live ISO.
 2. Create USB flash installation medium, as described above.
 3. Boot from the flash drive, enjoy the live sway and Hyprland environment.
-4. If you decide to install, find the "Installer" item in the top panel menu. Continue as decribed above.
+4. If you decide to install, find the "Installer" item in the top panel menu. Continue as decribed above (steps 3 - 5).
 
 **Preinstalled terminal emulator:**
 
