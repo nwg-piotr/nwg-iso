@@ -16,13 +16,22 @@ This ISO comes with live Hyprland/sway environment, so that you can test composi
 
 ## Installation
 
-1. Download the iso from [SourceForge](https://sourceforge.net/projects/nwg-iso/).
+### nwg-mini
+
+1. Download the nwg-mini ISO from [SourceForge](https://sourceforge.net/projects/nwg-iso/).
 2. Create USB flash installation medium, as decribed in [Arch Wiki](https://wiki.archlinux.org/title/USB_flash_installation_medium). Or just use SUSE Studio [ImageWriter](https://github.com/openSUSE/imagewriter), as I do.
-3. Boot from the iso, run the `installer` command. Go through the interactive Arch Linux installation.
+3. Boot from the flash drive, type the `installer` command. Go through the interactive Arch Linux installation.
 4. Reboot and login as a user with sudo privilleges. Wait for the script to finish installation.
 5. Reboot and you're ready to go.
 
 ![image](https://github.com/nwg-piotr/nwg-iso/assets/20579136/14587d6e-f794-4cc7-8830-5a955aaa9776)
+
+### nwg-live
+
+1. Download the nwg-live ISO.
+2. Create USB flash installation medium, as described above.
+3. Boot from the flash drive, enjoy the live sway and Hyprland environment.
+4. If you decide to install, find the "Installer" item in the top panel menu. Continue as decribed above.
 
 **Preinstalled terminal emulator:**
 
