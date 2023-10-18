@@ -8,11 +8,11 @@ The nwg-iso project provides two ISO images built with [archiso](https://wiki.ar
 
 ## nwg-mini
 
-The live environment (CLI) comes with the `installer` command, which is a simplified version of the interactive installation with the [archinstall](https://github.com/archlinux/archinstall) script. Some must have stuff has already been pre-selected. The iso also provides a script to install the shell itself - from the user account. Some packages (installer, AUR helper, customized sddm theme, python-dasbus and wlr-randr) have been enclosed in a local repository. Besides, we only use [Arch](https://archlinux.org/packages) and [AUR](https://aur.archlinux.org/) repositories.
+The live environment (CLI) comes with the `installer` command, which is a simplified version of the interactive installation with the [archinstall](https://github.com/archlinux/archinstall) script. Some must have stuff has already been pre-selected. The iso also provides a script to install the shell itself - from the user account (see [Multiple user accounts](#multiple-user-accounts) below). During installation you can choose the text editor and the web browser. Some packages (installer, AUR helper, customized sddm theme, python-dasbus and wlr-randr) have been enclosed in a local repository. Besides, we only use [Arch](https://archlinux.org/packages) and [AUR](https://aur.archlinux.org/) repositories.
 
 ## nwg-live
 
-This ISO comes with live Hyprland/sway environment, so that you can test compositors and the shell before installation. The installer is still the same, but will run inside the terminal emulator. Please find the "Installer" item in the top panel menu.
+This ISO comes with live Hyprland/sway environment, so that you can test compositors and the shell before installation. The text editor and the web browser are predefined: mousepad and Firefox. Of course you can replace them later with what you like most. All the AUR stuff comes packaged in the local repository. The entire installation, for all user accounts, is performed in one pass by the "installer" script. Please find the "Installer" item in the top panel menu.
 
 ## Installation
 
