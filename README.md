@@ -12,7 +12,7 @@ The live environment (CLI) comes with the `installer` command, which is a simpli
 
 ## nwg-live
 
-This ISO comes with live Hyprland/sway environment, so that you can test compositors and the shell before installation. The text editor and the web browser are predefined: mousepad and Firefox. Of course you can replace them later with what you like most. All the AUR stuff comes packaged in the local repository. The entire installation, for all user accounts, is performed in one pass by the "installer" script. Please find the "Installer" item in the top panel menu. Installation time: 6 minutes.
+This ISO comes with live Hyprland/sway environment, so that you can test compositors and the shell before installation. The text editor and the web browser are predefined: mousepad and Firefox. Of course you can replace them later with what you like most. All the AUR stuff comes packaged in the local repository. The entire installation, for all user accounts, is performed in one pass by the `installer` script. Please find the "Installer" item in the top panel menu. Installation time: 6 minutes.
 
 ## Installation
 
@@ -61,7 +61,9 @@ If you still want to test on a VM, remember to enable 3D acceleration and EFI.
 - [fastfetch](https://github.com/fastfetch-cli/fastfetch) - Like neofetch, but much faster because written in C;
 - [pacseek](https://github.com/moson-mo/pacseek) - TUI for searching and installing Arch Linux packages;
 - [swayimg](https://github.com/artemsen/swayimg) - Image viewer for Sway/Wayland;
-- `screeshot [fullscreen | region | focused | display]` - Script for taking screenshots.
+- [Thunar](https://docs.xfce.org/xfce/thunar/start) - Simple text editor for Xfce;
+- (nwg-live ISO) [Mousepad](https://docs.xfce.org/apps/mousepad/start) - Simple text editor for Xfce;
+- (nwg-live ISO) [Firefox](https://www.mozilla.org/firefox) - Standalone web browser from mozilla.org.
 
 **Aliases:**
 
