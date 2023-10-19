@@ -70,7 +70,7 @@
         },
         {
           "name": "Installer",
-          "icon": "archlinux-logo",
+          "icon": "nwg",
           "cmd": "foot sudo installer"
         }
       ],
