@@ -156,7 +156,7 @@ def perform_installation(mountpoint: Path):
 
         installation.add_additional_packages(
             ['networkmanager', 'network-manager-applet', 'iwd', 'nano', 'go', 'python-wheel', 'xdg-user-dirs',
-             'python-dasbus', 'sddm', 'udisks2', 'thunar', 'thunar-volman', 'gvfs', 'mousepad', 'firefox',
+             'python-dasbus', 'sddm', 'udisks2', 'thunar', 'thunar-volman', 'gvfs', 'mousepad',
              'baph', 'install-shell', 'sddm-sugar-candy-nwg', 'wlr-randr', 'fastfetch-bin', 'pacseek-bin',
              'swayimg', 'hyprland', 'xdg-desktop-portal-hyprland', 'nwg-shell'])
 
@@ -168,6 +168,9 @@ def perform_installation(mountpoint: Path):
             audio_config.install_audio_config(installation)
         else:
             info("No audio server will be installed")
+
+        # after audio config, due to possible pipewire-jack / jack2 conflict
+        installation.add_additional_packages(['firefox'])
 
         profile_config = profile.ProfileConfiguration(MinimalProfile())
         profile.profile_handler.install_profile_config(installation, profile_config)
@@ -226,9 +229,9 @@ def perform_installation(mountpoint: Path):
                 installation.enable_service(['vboxservice.service'])
 
         info("\nModifying per user configs")
-        # add users to 'video' group
-        installation.arch_chroot(f"usermod -aG video '${user.username}'")
         for user in users:
+            # add users to 'video' group
+            installation.arch_chroot(f"usermod -aG video '{user.username}'")
             # copy fastfetch config
             installation.arch_chroot("mkdir ~/.config/fastfetch", run_as=user.username)
             installation.arch_chroot("cp /etc/nwg/fastfetch.config.jsonc ~/.config/fastfetch/", run_as=user.username)
@@ -236,8 +239,11 @@ def perform_installation(mountpoint: Path):
             installation.arch_chroot("echo 'alias cls=clear' >> ~/.bashrc", run_as=user.username)
             # append fastfetch
             installation.arch_chroot("echo 'fastfetch' >> ~/.bashrc", run_as=user.username)
+            # initialize xdg-user-dirs
+            installation.arch_chroot("xdg-user-dirs-update", run_as=user.username)
+
             # initialize nwg-shell configs
-            installation.arch_chroot("nwg-shell-installer -w -hypr", run_as=user.username)
+            installation.arch_chroot(f"nwg-shell-installer -w -hypr -s -k {locale_config.kb_layout}", run_as=user.username)
 
         installation.enable_service(['sddm.service'])
 
