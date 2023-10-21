@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import shutil
 from pathlib import Path
 from typing import List, TYPE_CHECKING, Union, Any, Optional
 
@@ -18,6 +17,79 @@ from archinstall import info, debug
 from archinstall.default_profiles.minimal import MinimalProfile
 from archinstall.lib.networking import check_mirror_reachable
 from archinstall.lib.models import User
+from simple_term_menu import TerminalMenu
+
+bundles = {
+    "Caja": ["caja", "gstreamer"],
+    "Nautilus": ["nautilus"],
+    "Nemo": ["nemo"],
+    "PCManFM": ["pcmanfm-gtk3", "gvfs", "xarchiver"],
+    "Thunar": ["thunar", "catfish", "gvfs", "tumbler", "thunar-volman", "thunar-archive-plugin",
+               "thunar-media-tags-plugin"],
+
+    "Emacs": ["emacs"],
+    "gedit": ["gedit", "gedit-plugins"],
+    "Geany": ["geany", "geany-plugins"],
+    "Mousepad": ["mousepad", "gspell"],
+    "Vim": ["vim"],
+
+    "Chromium": ["chromium"],
+    "Epiphany": ["epiphany"],
+    "Firefox": ["firefox"],
+    "Midori": ["midori", "gst-libav", "gst-plugins-base", "gst-plugins-good"],
+    "Opera": ["opera", "opera-ffmpeg-codecs"],
+    "qutebrowser": ["qutebrowser", "pdfjs", "python-adblock"],
+    "Vivaldi": ["vivaldi", "vivaldi-ffmpeg-codecs"],
+
+    "Extra GTK themes": ["nordic-polar-theme", "otis-theme-git"],
+    "Extra icon themes": ["tela-icon-theme"]
+}
+
+
+def select_applications():
+    apps = []
+    items = ["Thunar", "Caja", "Nautilus", "Nemo", "PCManFM"]
+    t_menu = TerminalMenu(items, title="Select file manager:", clear_screen=True,
+                          status_bar="Selection is mandatory. If skipped, Thunar will be installed.")
+    menu_entry_index = t_menu.show()
+    if not menu_entry_index:
+        menu_entry_index = 0
+    append_if_absent(apps, bundles[items[menu_entry_index]])
+
+    items = ["Mousepad", "Emacs", "gedit", "Geany"]
+    t_menu = TerminalMenu(items, title=["Select text editor:"], clear_screen=True,
+                          status_bar="Selection is mandatory. If skipped, Mousepad will be installed.")
+    menu_entry_index = t_menu.show()
+    if not menu_entry_index:
+        menu_entry_index = 0
+    append_if_absent(apps, bundles[items[menu_entry_index]])
+
+    items = ["Firefox", "Chromium", "Epiphany", "Midori", "Opera", "qutebrowser", "Vivaldi"]
+    t_menu = TerminalMenu(items, title=["Select web browser:"], clear_screen=True,
+                          status_bar="Selection is mandatory. If skipped, Firefox will be installed.")
+    menu_entry_index = t_menu.show()
+    if not menu_entry_index:
+        menu_entry_index = 0
+    append_if_absent(apps, bundles[items[menu_entry_index]])
+
+    items = ["Extra GTK themes", "Extra icon themes"]
+    t_menu = TerminalMenu(items, title=["Select extras:"], clear_screen=True, multi_select=True,
+                          show_multi_select_hint=True, multi_select_select_on_accept=False, multi_select_empty_ok=True,
+                          show_multi_select_hint_text="Press <Space> or <Tab> for multi-selection, <Enter> to accept, "
+                                                      "<Esc> to skip selection.")
+    t_menu.show()
+    if t_menu.chosen_menu_entries is not None:
+        for item in t_menu.chosen_menu_entries:
+            append_if_absent(apps, bundles[item])
+
+    return apps
+
+
+def append_if_absent(dst, src):
+    for item in src:
+        if item not in dst:
+            dst.append(item)
+
 
 if TYPE_CHECKING:
     _: Any
@@ -77,7 +149,7 @@ def ask_user_questions():
 
     global_menu.enable('__separator__')
 
-    global_menu.enable('save_config')
+    # global_menu.enable('save_config')
     global_menu.enable('install')
     global_menu.enable('abort')
 
@@ -157,7 +229,7 @@ def perform_installation(mountpoint: Path):
         installation.add_additional_packages(
             ['networkmanager', 'network-manager-applet', 'iwd', 'nano', 'go', 'python-wheel', 'xdg-user-dirs',
              'python-dasbus', 'sddm', 'udisks2', 'thunar', 'thunar-volman', 'gvfs', 'mousepad',
-             'baph', 'install-shell', 'sddm-sugar-candy-nwg', 'wlr-randr', 'fastfetch-bin', 'pacseek-bin',
+             'baph', 'install-shell', 'sddm-sugar-candy-nwg', 'wlr-randr', 'fastfetch', 'pacseek-bin',
              'swayimg', 'hyprland', 'xdg-desktop-portal-hyprland', 'nwg-shell'])
 
         if users := archinstall.arguments.get('!users', None):
@@ -169,8 +241,8 @@ def perform_installation(mountpoint: Path):
         else:
             info("No audio server will be installed")
 
-        # after audio config, due to possible pipewire-jack / jack2 conflict
-        installation.add_additional_packages(['firefox'])
+        # Install previously selected applications
+        installation.add_additional_packages(applications)
 
         profile_config = profile.ProfileConfiguration(MinimalProfile())
         profile.profile_handler.install_profile_config(installation, profile_config)
@@ -196,8 +268,8 @@ def perform_installation(mountpoint: Path):
 
         # If the user provided a list of services to be enabled, pass the list to the enable_service function.
         # Note that while it's called enable_service, it can actually take a list of services and iterate it.
-        # if archinstall.arguments.get('services', None):
-        #     installation.enable_service(archinstall.arguments.get('services', []))
+        if archinstall.arguments.get('services', None):
+            installation.enable_service(archinstall.arguments.get('services', []))
 
         installation.enable_service(['NetworkManager.service', 'iwd.service'])
 
@@ -210,10 +282,6 @@ def perform_installation(mountpoint: Path):
         users: Union[User, List[User]] = archinstall.arguments.get('!users', [])
         if not isinstance(users, list):
             users = [users]
-
-        # add `install-shell` to all users' ~/.bashrc (will be removed during further installation)
-        # for user in users:
-        #     installation.arch_chroot("sed -i '$ a install-shell' ~/.bashrc", run_as=user.username)
 
         virt = ""
         try:
@@ -234,7 +302,7 @@ def perform_installation(mountpoint: Path):
             installation.arch_chroot(f"usermod -aG video '{user.username}'")
             # copy fastfetch config
             installation.arch_chroot("mkdir ~/.config/fastfetch", run_as=user.username)
-            installation.arch_chroot("cp /etc/nwg/fastfetch.config.jsonc ~/.config/fastfetch/", run_as=user.username)
+            installation.arch_chroot("cp /etc/nwg/config.jsonc ~/.config/fastfetch/", run_as=user.username)
             # append aliases
             installation.arch_chroot("echo 'alias cls=clear' >> ~/.bashrc", run_as=user.username)
             # append fastfetch
@@ -261,6 +329,9 @@ if archinstall.arguments.get('skip-mirror-check', False) is False and check_mirr
     exit(1)
 
 ask_user_questions()
+
+# file manager, text editor, browser
+applications = select_applications()
 
 fs_handler = disk.FilesystemHandler(
     archinstall.arguments['disk_config'],
