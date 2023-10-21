@@ -61,7 +61,7 @@ If you still want to test on a VM, remember to enable 3D acceleration and EFI.
 - [fastfetch](https://github.com/fastfetch-cli/fastfetch) - Like neofetch, but much faster because written in C;
 - [pacseek](https://github.com/moson-mo/pacseek) - TUI for searching and installing Arch Linux packages;
 - [swayimg](https://github.com/artemsen/swayimg) - Image viewer for Sway/Wayland;
-- [Thunar](https://docs.xfce.org/xfce/thunar/start) - Simple text editor for Xfce;
+- [Thunar](https://docs.xfce.org/xfce/thunar/start) - Simple file manager for Xfce;
 - (nwg-live ISO) [Mousepad](https://docs.xfce.org/apps/mousepad/start) - Simple text editor for Xfce;
 - (nwg-live ISO) [Firefox](https://www.mozilla.org/firefox) - Standalone web browser from mozilla.org.
 
