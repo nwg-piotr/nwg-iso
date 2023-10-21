@@ -68,7 +68,7 @@ echo "Initializing XDG user directories"
 xdg-user-dirs-update
 
 echo "Installing CLI/TUI tools"
-baph -inN fastfetch-bin pacseek-bin swayimg
+baph -inN fastfetch pacseek-bin swayimg
 
 echo "Installing Hyprland"
 baph -inN hyprland xdg-desktop-portal-hyprland
@@ -92,7 +92,7 @@ for user_dir in /home/*; do
     sudo usermod -aG video "${user_dir##*/}"
 
     # Copy fastfetch config
-    mkdir -p $user_dir/.config/fastfetch && cp /etc/nwg/fastfetch.config.jsonc $_/config.jsonc
+    mkdir -p $user_dir/.config/fastfetch && cp /etc/nwg/config.jsonc $_/config.jsonc
 
     # Modify .bashrc files
     if sudo test -f "$user_dir/.bashrc"; then
