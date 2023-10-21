@@ -68,7 +68,7 @@ echo "Initializing XDG user directories"
 xdg-user-dirs-update
 
 echo "Installing CLI/TUI tools"
-baph -inN fastfetch pacseek-bin swayimg
+baph -inN pacseek-bin
 
 echo "Installing Hyprland"
 baph -inN hyprland xdg-desktop-portal-hyprland
