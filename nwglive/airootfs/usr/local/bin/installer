@@ -42,7 +42,8 @@ bundles = {
     "Vivaldi": ["vivaldi", "vivaldi-ffmpeg-codecs"],
 
     "Extra GTK themes": ["nordic-polar-theme", "otis-theme-git"],
-    "Extra icon themes": ["tela-icon-theme"]
+    "Extra icon themes": ["tela-icon-theme"],
+    "Extra cursor themes": ["xcursor-vanilla-dmz"]
 }
 
 
@@ -50,7 +51,8 @@ def select_applications():
     apps = []
     items = ["Thunar", "Caja", "Nautilus", "Nemo", "PCManFM"]
     t_menu = TerminalMenu(items, title="Select file manager:", clear_screen=True,
-                          status_bar="Selection is mandatory. If skipped, Thunar will be installed.")
+                          status_bar="Selection is mandatory. If skipped, Thunar will be installed.",
+                          preview_command=preview_cmd, preview_title="Packages")
     menu_entry_index = t_menu.show()
     if not menu_entry_index:
         menu_entry_index = 0
@@ -58,7 +60,8 @@ def select_applications():
 
     items = ["Mousepad", "Emacs", "gedit", "Geany"]
     t_menu = TerminalMenu(items, title=["Select text editor:"], clear_screen=True,
-                          status_bar="Selection is mandatory. If skipped, Mousepad will be installed.")
+                          status_bar="Selection is mandatory. If skipped, Mousepad will be installed.",
+                          preview_command=preview_cmd, preview_title="Packages")
     menu_entry_index = t_menu.show()
     if not menu_entry_index:
         menu_entry_index = 0
@@ -66,17 +69,17 @@ def select_applications():
 
     items = ["Firefox", "Chromium", "Epiphany", "Midori", "Opera", "qutebrowser", "Vivaldi"]
     t_menu = TerminalMenu(items, title=["Select web browser:"], clear_screen=True,
-                          status_bar="Selection is mandatory. If skipped, Firefox will be installed.")
+                          status_bar="Selection is mandatory. If skipped, Firefox will be installed.",
+                          preview_command=preview_cmd, preview_title="Packages")
     menu_entry_index = t_menu.show()
     if not menu_entry_index:
         menu_entry_index = 0
     append_if_absent(apps, bundles[items[menu_entry_index]])
 
-    items = ["Extra GTK themes", "Extra icon themes"]
+    items = ["Extra GTK themes", "Extra icon themes", "Extra cursor themes"]
     t_menu = TerminalMenu(items, title=["Select extras:"], clear_screen=True, multi_select=True,
                           show_multi_select_hint=True, multi_select_select_on_accept=False, multi_select_empty_ok=True,
-                          show_multi_select_hint_text="Press <Space> or <Tab> for multi-selection, <Enter> to accept, "
-                                                      "<Esc> to skip selection.")
+                          preview_command=preview_cmd, preview_title="Packages")
     t_menu.show()
     if t_menu.chosen_menu_entries is not None:
         for item in t_menu.chosen_menu_entries:
@@ -89,6 +92,10 @@ def append_if_absent(dst, src):
     for item in src:
         if item not in dst:
             dst.append(item)
+
+
+def preview_cmd(arg):
+    return ' '.join(bundles[arg])
 
 
 if TYPE_CHECKING:
