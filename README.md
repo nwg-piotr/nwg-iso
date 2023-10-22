@@ -34,9 +34,8 @@ is not recommended. Running sway and Hyprland on a VM is possible, but frustrati
 - [fastfetch](https://github.com/fastfetch-cli/fastfetch) - Like neofetch, but much faster because written in C;
 - [pacseek](https://github.com/moson-mo/pacseek) - TUI for searching and installing Arch Linux packages;
 - [swayimg](https://github.com/artemsen/swayimg) - Image viewer for Sway/Wayland;
-- [Thunar](https://docs.xfce.org/xfce/thunar/start) - Simple file manager for Xfce;
-- (nwg-live ISO) [Mousepad](https://docs.xfce.org/apps/mousepad/start) - Simple text editor for Xfce;
-- (nwg-live ISO) [Firefox](https://www.mozilla.org/firefox) - Standalone web browser from mozilla.org.
+- File manager for Xfce, text editor and a web browser of your choice;
+- Optionally: extra GTK themes, icon themes and a cursor theme.
 
 **Aliases:**
 
