@@ -23,19 +23,9 @@ Find the 'Shell settings' item in the top panel menu. Review your settings here.
 
 Click the (i) icon in the top panel to see key bindings help. Open the Controls menu in the top panel to see more configuration tools.
 
-## Multiple user accounts
-
-If you installed from the nwg-mini ISO, to set up nwg-shell config files on another user's account you need to:
-
-1. Log in as another user in console;
-2. execute the `nwg-shell-installer -w -hypr` command.
-
 ## Testing on a virtual machine
 
-Running sway and Hyprland on a VM is possible, but frustrating. If you use VirtualBox, the installer will add VirtualBox 
-guest utils automatically. The necessary `export WLR_NO_HARDWARE_CURSORS=1` line will be added to `/etc/profile` as well.
-The mouse pointer, however, well be sluggish and slow-reacting. I highly recommend testing on real hardware. 
-If you still want to test on a VM, remember to enable 3D acceleration and EFI.
+is not recommended. Running sway and Hyprland on a VM is possible, but frustrating. If you do need to do so, remember to enable 3D acceleration and EFI. Start the sway session and install `virtualbox-guest-utils` with pacman.
 
 ## Preinstalled stuff
 
