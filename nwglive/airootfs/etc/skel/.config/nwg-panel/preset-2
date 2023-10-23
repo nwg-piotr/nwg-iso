@@ -47,7 +47,6 @@
       "alignment": "right",
       "components": [
         "brightness",
-        "battery",
         "volume",
         "processes"
       ],
@@ -85,7 +84,7 @@
         {
           "name": "Installer",
           "icon": "nwg",
-          "cmd": "foot sudo installer"
+          "cmd": "foot -H sudo installer"
         }
       ],
       "menu": {
