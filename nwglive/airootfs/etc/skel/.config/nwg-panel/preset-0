@@ -33,6 +33,7 @@
       "alignment": "right",
       "components": [
         "brightness",
+        "battery",
         "volume",
         "processes"
       ],
@@ -107,6 +108,7 @@
       "output-switcher": true,
       "window-width": 320,
       "window-margin": 0,
+      "battery-low-level": 20,
       "root-css-name": "controls-overview",
       "backlight-device": ""
     },

@@ -29,6 +29,7 @@
     "controls-settings": {
       "components": [
         "brightness",
+        "battery",
         "volume",
         "processes"
       ],
@@ -178,6 +179,7 @@
     "controls-settings": {
       "components": [
         "brightness",
+        "battery",
         "volume",
         "processes"
       ],
@@ -187,6 +189,7 @@
       "show-values": false,
       "interval": 1,
       "icon-size": 16,
+      "battery-low-level": 20,
       "hover-opens": false,
       "leave-closes": true,
       "click-closes": false,
