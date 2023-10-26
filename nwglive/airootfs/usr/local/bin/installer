@@ -303,6 +303,9 @@ def perform_installation(mountpoint: Path):
                 installation.add_additional_packages(['virtualbox-guest-utils'])
                 installation.enable_service(['vboxservice.service'])
 
+        # add pacman download animation
+        installation.arch_chroot("sudo sed -i '/# Misc options/a ILoveCandy' /etc/pacman.conf")
+
         info("\nModifying per user configs")
         for user in users:
             # add users to 'video' group
