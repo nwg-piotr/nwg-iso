@@ -23,10 +23,6 @@ Find the 'Shell settings' item in the top panel menu. Review your settings here.
 
 Click the (i) icon in the top panel to see key bindings help. Open the Controls menu in the top panel to see more configuration tools.
 
-## Testing on a virtual machine
-
-is not recommended. Running sway and Hyprland on a VM is possible, but frustrating. If you do need to do so, remember to enable 3D acceleration and EFI. Start the sway session and install `virtualbox-guest-utils` with pacman.
-
 ## Preinstalled stuff
 
 - [foot](https://wiki.archlinux.org/title/Foot) - Fast, lightweight and minimalistic Wayland terminal emulator (Super+T);
@@ -40,6 +36,24 @@ is not recommended. Running sway and Hyprland on a VM is possible, but frustrati
 **Aliases:**
 
 - `cls` for `clear`
+
+## sway session on Nvidia GPU
+
+To be able to run sway on Nvidia GPU, you need to use the `--unsupported-gpu` flag.
+
+`# nano /usr/share/wayland-sessions/sway.desktop`
+
+```text
+[Desktop Entry]
+Name=Sway
+Comment=An i3-compatible Wayland compositor
+Exec=sway --unsupported-gpu
+Type=Application
+```
+
+## Testing on a virtual machine
+
+is not recommended. Running sway and Hyprland on a VM is possible, but frustrating. If you do need to do so, remember to enable 3D acceleration and EFI. Start the sway session and install `virtualbox-guest-utils` with pacman.
 
 ## Contact
 
