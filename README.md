@@ -11,7 +11,7 @@ The live environment comes with live Hyprland/sway environment, so that you can 
 ## Installation
 
 1. Download the nwg-live ISO.
-2. Create USB flash installation medium, as described above.
+2. [Create USB flash installation medium](https://wiki.archlinux.org/title/USB_flash_installation_medium).
 3. Boot from the flash drive, enjoy the live sway and Hyprland environment. **User**: `nwg` **Password**: `nwg`
 5. If you decide to install, use the "Installer" item in the top panel menu. The script will run in the terminal emulator.
 
