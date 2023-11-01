@@ -170,7 +170,6 @@ python-send2trash
 python-setuptools
 python-wheel
 python-yaml
-sddm
 slurp
 swappy
 sway
@@ -196,6 +195,8 @@ gtklock-playerctl-module
 gtklock-powerbar-module
 gtklock-userinfo-module
 install-shell
+lightdm
+lightdm-nwg-greeter
 nwg-bar-bin
 nwg-displays
 nwg-dock-bin

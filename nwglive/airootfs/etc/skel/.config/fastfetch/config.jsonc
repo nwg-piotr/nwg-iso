@@ -6,9 +6,6 @@
     "logo": {
 		"source": "/usr/share/nwg/nwg.txt"
     },
-    "display": {
-        "percentType": 9 // colored percent number
-    },
     "modules": [
         "title",
         "separator",
