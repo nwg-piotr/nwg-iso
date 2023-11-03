@@ -53,7 +53,9 @@ Type=Application
 
 ## Testing on a virtual machine
 
-is not recommended. Running sway and Hyprland on a VM is possible, but frustrating. If you do need to do so, remember to enable 3D acceleration and EFI. Start the sway session and install `virtualbox-guest-utils` with pacman.
+is neither recommended nor supported. Running sway and Hyprland on a VM is possible, but frustrating. If you do need to 
+do so, remember to enable 3D acceleration and EFI. Also remember to choose SDDM as your display manager. LightDM with 
+the greeter that uses the cage wayland compositor won't behave well.
 
 ## Contact
 
