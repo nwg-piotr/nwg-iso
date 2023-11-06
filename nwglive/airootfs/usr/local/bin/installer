@@ -82,7 +82,7 @@ def select_applications():
     append_if_absent(apps, bundles[items[menu_entry_index]])
 
     items = ["LightDM", "SDDM"]
-    t_menu = TerminalMenu(items, title=["Select display manager ('LightDM' if none selected):"], clear_screen=True,
+    t_menu = TerminalMenu(items, title=["Select display manager:"], clear_screen=True,
                           status_bar="Selection is mandatory. If skipped, LightDM will be installed.",
                           preview_command=preview_cmd, preview_title="Packages")
     menu_entry_index = t_menu.show()
