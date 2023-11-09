@@ -46,10 +46,14 @@ bundles = {
 
     "Extra GTK themes": ["nordic-polar-theme", "otis-theme-git"],
     "Extra icon themes": ["tela-icon-theme"],
-    "Extra cursor themes": ["xcursor-vanilla-dmz"]
+    "Extra cursor themes": ["xcursor-vanilla-dmz"],
+
+    "Modify": ["This will add the '--unsupported-gpu' argument in the sway.desktop file."],
+    "Skip": ["This will do nothing."]
 }
 
 display_manager = None
+modify_sway_desktop = False
 
 
 def select_applications():
@@ -91,6 +95,23 @@ def select_applications():
     global display_manager
     display_manager = items[menu_entry_index]
     append_if_absent(apps, bundles[items[menu_entry_index]])
+
+    output = subprocess.check_output("lspci").decode("utf-8").splitlines()
+    vga = ""
+    for line in output:
+        if "VGA" in line.upper():
+            vga = line
+            break
+    if "NVIDIA" in vga.upper():
+        items = ["Modify", "Skip"]
+        t_menu = TerminalMenu(items, title=["Modify sway.desktop?"], clear_screen=True,
+                              status_bar="Nvidia GPU detected. Do you want to modify the sway.desktop file?",
+                              preview_command=preview_cmd, preview_title="Nvidia GPU")
+        menu_entry_index = t_menu.show()
+        if not menu_entry_index:
+            menu_entry_index = 0
+        global modify_sway_desktop
+        modify_sway_desktop = menu_entry_index == 0
 
     items = ["Extra GTK themes", "Extra icon themes", "Extra cursor themes"]
     t_menu = TerminalMenu(items, title=["Select extras:"], clear_screen=True, multi_select=True,
@@ -322,6 +343,10 @@ def perform_installation(mountpoint: Path):
         # add pacman download animation
         installation.arch_chroot("sudo sed -i '/# Misc options/a ILoveCandy' /etc/pacman.conf")
 
+        # allow starting sway on Nvidia GPU
+        if modify_sway_desktop:
+            installation.arch_chroot("sudo sed -i 's/^Exec=sway$/Exec=sway --unsupported-gpu/' /usr/share/wayland-sessions/sway.desktop")
+
         info("\nModifying per user configs")
         for user in users:
             # add users to 'video' group
@@ -337,7 +362,8 @@ def perform_installation(mountpoint: Path):
             installation.arch_chroot("xdg-user-dirs-update", run_as=user.username)
 
             # initialize nwg-shell configs
-            installation.arch_chroot(f"nwg-shell-installer -w -hypr -s -k {locale_config.kb_layout}", run_as=user.username)
+            installation.arch_chroot(f"nwg-shell-installer -w -hypr -s -k {locale_config.kb_layout}",
+                                     run_as=user.username)
 
         if display_manager == "SDDM":
             installation.enable_service(['sddm.service'])
@@ -359,7 +385,7 @@ if archinstall.arguments.get('skip-mirror-check', False) is False and check_mirr
 
 ask_user_questions()
 
-# file manager, text editor, browser, display manager
+# file manager, text editor, browser, display manager, extras; also asks whether to modify the sway.desktop file
 applications = select_applications()
 
 fs_handler = disk.FilesystemHandler(
