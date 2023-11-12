@@ -343,6 +343,9 @@ def perform_installation(mountpoint: Path):
         # add pacman download animation
         installation.arch_chroot("sudo sed -i '/# Misc options/a ILoveCandy' /etc/pacman.conf")
 
+        # receive Simon Ser's pgp key (for wlr-randr updates)
+        installation.arch_chroot("gpg --recv-key 0FDE7BE0E88F5E48")
+
         # allow starting sway on Nvidia GPU
         if modify_sway_desktop:
             installation.arch_chroot("sudo sed -i 's/^Exec=sway$/Exec=sway --unsupported-gpu/' /usr/share/wayland-sessions/sway.desktop")
