@@ -28,7 +28,7 @@ Click the (i) icon in the top panel to see key bindings help. Open the Controls 
 ## AUR helpers
 
 Nwg-shell comes with the [baph](https://bitbucket.org/natemaia/baph) (Basic AUR Package Helper) preinstalled. It's simple and it just works.
-Starting from nwg-shell-config 0.5.24, support for [yay](https://github.com/Jguer/yay) aur helper has been added. 
+Starting from nwg-shell-config 0.5.24, support for [yay](https://github.com/Jguer/yay) AUR helper has been added. 
 If you install the `yay` or `yay-bin` package, yay will be used instead of baph, as well by the tray notification applet, 
 as by the `nwg-system-update` script.
 
