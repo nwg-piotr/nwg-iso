@@ -25,6 +25,13 @@ Find the 'Shell settings' item in the top panel menu. Review your settings here.
 
 Click the (i) icon in the top panel to see key bindings help. Open the Controls menu in the top panel to see more configuration tools.
 
+## AUR helpers
+
+Nwg-shell comes with the [baph](https://bitbucket.org/natemaia/baph) (Basic AUR Package Helper) preinstalled. It's simple and it just works.
+Starting from nwg-shell-config 0.5.24, support for [yay](https://github.com/Jguer/yay) aur helper has been added. 
+If you install the `yay` or `yay-bin` package, yay will be used instead of baph, as well by the tray notification applet, 
+as by the `nwg-system-update` script.
+
 ## Preinstalled stuff
 
 - [foot](https://wiki.archlinux.org/title/Foot) - Fast, lightweight and minimalistic Wayland terminal emulator (Super+T);
@@ -41,7 +48,7 @@ Click the (i) icon in the top panel to see key bindings help. Open the Controls 
 
 ## sway session on Nvidia GPU
 
-To be able to run sway on Nvidia GPU, you need to use the `--unsupported-gpu` flag.
+To be able to run sway on Nvidia GPU, you need to use the `--unsupported-gpu` flag. Since the 2023.11.09 ISO version the installer should do it for you, but I have no Nvidia in range and haven't yet tested it. So, just in case - the sway.desktop file should look as below:
 
 `# nano /usr/share/wayland-sessions/sway.desktop`
 
