@@ -286,6 +286,7 @@ def perform_installation(mountpoint: Path):
             info("No audio server will be installed")
 
         # Install previously selected applications
+        info(f'Installing selected: {" ".join(applications)}')
         installation.add_additional_packages(applications)
 
         profile_config = profile.ProfileConfiguration(MinimalProfile())
