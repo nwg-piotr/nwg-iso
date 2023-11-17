@@ -59,7 +59,7 @@ modify_sway_desktop = False
 def select_applications():
     apps = []
     items = ["Thunar", "Caja", "Nautilus", "Nemo", "PCManFM"]
-    t_menu = TerminalMenu(items, title="Select file manager:", clear_screen=True,
+    t_menu = TerminalMenu(items, title="Select file manager (Esc to skip):", clear_screen=True,
                           status_bar="Selection is mandatory. If skipped, Thunar will be installed.",
                           preview_command=preview_cmd, preview_title="Packages")
     menu_entry_index = t_menu.show()
@@ -68,7 +68,7 @@ def select_applications():
     append_if_absent(apps, bundles[items[menu_entry_index]])
 
     items = ["Mousepad", "Emacs", "gedit", "Geany"]
-    t_menu = TerminalMenu(items, title=["Select text editor:"], clear_screen=True,
+    t_menu = TerminalMenu(items, title=["Select text editor (Esc to skip):"], clear_screen=True,
                           status_bar="Selection is mandatory. If skipped, Mousepad will be installed.",
                           preview_command=preview_cmd, preview_title="Packages")
     menu_entry_index = t_menu.show()
@@ -77,7 +77,7 @@ def select_applications():
     append_if_absent(apps, bundles[items[menu_entry_index]])
 
     items = ["Firefox", "Chromium", "Epiphany", "Midori", "Opera", "qutebrowser", "Vivaldi"]
-    t_menu = TerminalMenu(items, title=["Select web browser:"], clear_screen=True,
+    t_menu = TerminalMenu(items, title=["Select web browser (Esc to skip):"], clear_screen=True,
                           status_bar="Selection is mandatory. If skipped, Firefox will be installed.",
                           preview_command=preview_cmd, preview_title="Packages")
     menu_entry_index = t_menu.show()
@@ -86,7 +86,7 @@ def select_applications():
     append_if_absent(apps, bundles[items[menu_entry_index]])
 
     items = ["LightDM", "SDDM"]
-    t_menu = TerminalMenu(items, title=["Select display manager:"], clear_screen=True,
+    t_menu = TerminalMenu(items, title=["Select display manager (Esc to skip):"], clear_screen=True,
                           status_bar="Selection is mandatory. If skipped, LightDM will be installed.",
                           preview_command=preview_cmd, preview_title="Packages")
     menu_entry_index = t_menu.show()
@@ -104,17 +104,17 @@ def select_applications():
             break
     if "NVIDIA" in vga.upper():
         items = ["Modify", "Skip"]
-        t_menu = TerminalMenu(items, title=["Modify sway.desktop?"], clear_screen=True,
+        t_menu = TerminalMenu(items, title=["Modify sway.desktop (Esc to skip)?"], clear_screen=True,
                               status_bar="Nvidia GPU detected. Do you want to modify the sway.desktop file?",
                               preview_command=preview_cmd, preview_title="Nvidia GPU")
         menu_entry_index = t_menu.show()
         if not menu_entry_index:
-            menu_entry_index = 0
+            menu_entry_index = 1
         global modify_sway_desktop
         modify_sway_desktop = menu_entry_index == 0
 
     items = ["Extra GTK themes", "Extra icon themes", "Extra cursor themes"]
-    t_menu = TerminalMenu(items, title=["Select extras:"], clear_screen=True, multi_select=True,
+    t_menu = TerminalMenu(items, title=["Select extras (Esc to skip):"], clear_screen=True, multi_select=True,
                           show_multi_select_hint=True, multi_select_select_on_accept=False, multi_select_empty_ok=True,
                           preview_command=preview_cmd, preview_title="Packages")
     t_menu.show()
