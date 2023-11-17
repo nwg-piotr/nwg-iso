@@ -272,9 +272,8 @@ def perform_installation(mountpoint: Path):
 
         installation.add_additional_packages(
             ['networkmanager', 'network-manager-applet', 'iwd', 'nano', 'go', 'python-wheel', 'xdg-user-dirs',
-             'python-dasbus', 'udisks2', 'thunar', 'thunar-volman', 'gvfs', 'mousepad', 'otf-font-awesome',
-             'baph', 'install-shell', 'wlr-randr', 'fastfetch', 'pacseek-bin',
-             'swayimg', 'hyprland', 'xdg-desktop-portal-hyprland', 'nwg-shell', "swayimg"])
+             'python-dasbus', 'udisks2', 'mousepad', 'otf-font-awesome', 'baph', 'install-shell', 'wlr-randr',
+             'fastfetch', 'pacseek-bin', 'swayimg', 'hyprland', 'xdg-desktop-portal-hyprland', 'nwg-shell', "swayimg"])
 
         if users := archinstall.arguments.get('!users', None):
             installation.create_users(users)
