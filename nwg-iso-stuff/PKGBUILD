@@ -1,0 +1,23 @@
+# Maintainer: Piotr Miller <nwg.piotr@gmail.com>
+pkgname=('nwg-iso-stuff')
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="provides some files needed by nwg-iso"
+arch=('any')
+url="https://github.com/nwg-piotr/nwg-iso"
+license=('MIT')
+provides=('nwg-iso-stuff')
+source=("https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-iso-stuff/nwg.svg"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-iso-stuff/nwg.txt"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-iso-stuff/config.jsonc")
+
+md5sums=('SKIP'
+         'SKIP'
+         'SKIP')
+
+package() {
+  install -d "$pkgdir"/etc/nwg
+  install -D -m 644 nwg.svg "$pkgdir/usr/share/pixmaps/nwg.svg"
+  install -D -m 644 nwg.txt "$pkgdir/usr/share/nwg/nwg.txt"
+  install -D -m 644 config.jsonc "$pkgdir/etc/nwg/config.jsonc"
+}
