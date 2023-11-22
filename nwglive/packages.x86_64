@@ -195,13 +195,13 @@ gtklock
 gtklock-playerctl-module
 gtklock-powerbar-module
 gtklock-userinfo-module
-install-shell
 nwg-bar-bin
 nwg-displays
 nwg-dock-bin
 nwg-dock-hyprland-bin
 nwg-drawer-bin
 nwg-icon-picker
+nwg-iso-stuff
 nwg-look-bin
 nwg-menu-bin
 nwg-panel
