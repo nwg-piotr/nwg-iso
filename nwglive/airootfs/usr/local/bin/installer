@@ -361,7 +361,7 @@ def perform_installation(mountpoint: Path):
             # add users to 'video' group
             installation.arch_chroot(f"usermod -aG video '{user.username}'")
             # copy fastfetch config
-            installation.arch_chroot("mkdir ~/.config/fastfetch", run_as=user.username)
+            installation.arch_chroot("mkdir -p ~/.config/fastfetch", run_as=user.username)
             installation.arch_chroot("cp /etc/nwg/config.jsonc ~/.config/fastfetch/", run_as=user.username)
             # append aliases
             installation.arch_chroot("echo 'alias cls=clear' >> ~/.bashrc", run_as=user.username)
