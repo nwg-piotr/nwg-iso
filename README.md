@@ -69,6 +69,7 @@ choose SDDM as your display manager. LightDM with the greeter that uses the cage
 ## Known issues
 
 - 2023-12-05: gtklock won't work in the Hyprland session, due to the wlr-input-inhibitor protocol missing from Hyprland 0.33.0. Reported [here](https://github.com/jovanlanik/gtklock/issues/78).
+- 2023-12-07: `lightdm 1:1.32.0-5` update broke the LightDM greeter. Please do not use - install SDDM instead.
 
 ## Contact
 
