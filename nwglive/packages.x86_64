@@ -139,6 +139,8 @@ glib2
 gnome-themes-extra
 go
 gobject-introspection
+greetd
+greetd-regreet
 grim
 gtk-layer-shell
 gtk3
@@ -170,7 +172,6 @@ python-send2trash
 python-setuptools
 python-wheel
 python-yaml
-sddm
 slurp
 swappy
 sway
