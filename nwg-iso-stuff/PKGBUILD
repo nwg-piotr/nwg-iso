@@ -1,17 +1,25 @@
 # Maintainer: Piotr Miller <nwg.piotr@gmail.com>
 pkgname=('nwg-iso-stuff')
-pkgver=0.1.0
+pkgver=0.1.2
 pkgrel=1
 pkgdesc="provides some files needed by nwg-iso"
 arch=('any')
 url="https://github.com/nwg-piotr/nwg-iso"
 license=('MIT')
 provides=('nwg-iso-stuff')
-source=("https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-iso-stuff/nwg.svg"
-        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-iso-stuff/nwg.txt"
-        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-iso-stuff/config.jsonc")
+source=("https://raw.githubusercontent.com/nwg-piotr/nwg-iso/greetd/nwg-iso-stuff/nwg.svg"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/greetd/nwg-iso-stuff/nwg.txt"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/greetd/nwg-iso-stuff/config.jsonc"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/greetd/nwg-iso-stuff/greetd.conf"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/greetd/nwg-iso-stuff/hyprland.conf"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/greetd/nwg-iso-stuff/nwg-regreet.css"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/greetd/nwg-iso-stuff/nwg-regreet.toml")
 
 md5sums=('SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
+         'SKIP'
          'SKIP'
          'SKIP')
 
@@ -20,4 +28,10 @@ package() {
   install -D -m 644 nwg.svg "$pkgdir/usr/share/pixmaps/nwg.svg"
   install -D -m 644 nwg.txt "$pkgdir/usr/share/nwg/nwg.txt"
   install -D -m 644 config.jsonc "$pkgdir/etc/nwg/config.jsonc"
+
+  install -d "$pkgdir"/etc/greetd
+  install -D -m 644 greetd.conf "$pkgdir/etc/greetd/greetd.conf"
+  install -D -m 644 hyprland.conf "$pkgdir/etc/greetd/hyprland.conf"
+  install -D -m 644 nwg-regreet.css "$pkgdir/etc/greetd/nwg-regreet.css"
+  install -D -m 644 nwg-regreet.toml "$pkgdir/etc/greetd/nwg-regreet.toml"
 }
