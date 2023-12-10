@@ -7,13 +7,13 @@ arch=('any')
 url="https://github.com/nwg-piotr/nwg-iso"
 license=('MIT')
 provides=('nwg-iso-stuff')
-source=("https://raw.githubusercontent.com/nwg-piotr/nwg-iso/greetd/nwg-iso-stuff/nwg.svg"
-        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/greetd/nwg-iso-stuff/nwg.txt"
-        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/greetd/nwg-iso-stuff/config.jsonc"
-        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/greetd/nwg-iso-stuff/greetd.conf"
-        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/greetd/nwg-iso-stuff/hyprland.conf"
-        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/greetd/nwg-iso-stuff/nwg-regreet.css"
-        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/greetd/nwg-iso-stuff/nwg-regreet.toml")
+source=("https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-iso-stuff/nwg.svg"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-iso-stuff/nwg.txt"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-iso-stuff/config.jsonc"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-iso-stuff/greetd.conf"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-iso-stuff/hyprland.conf"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-iso-stuff/nwg-regreet.css"
+        "https://raw.githubusercontent.com/nwg-piotr/nwg-iso/master/nwg-iso-stuff/nwg-regreet.toml")
 
 md5sums=('SKIP'
          'SKIP'
