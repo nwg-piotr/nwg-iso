@@ -279,7 +279,7 @@ def perform_installation(mountpoint: Path):
         installation.add_additional_packages(
             ['networkmanager', 'network-manager-applet', 'iwd', 'nano', 'go', 'python-wheel', 'xdg-user-dirs',
              'python-dasbus', 'udisks2', 'otf-font-awesome', 'baph', 'nwg-iso-stuff', 'wlr-randr', 'fastfetch',
-             'greetd', 'greetd-regreet', 'pacseek-bin', 'swayimg', 'hyprland', 'xdg-desktop-portal-hyprland',
+             'greetd', 'nwg-hello', 'pacseek-bin', 'swayimg', 'hyprland', 'xdg-desktop-portal-hyprland',
              'nwg-shell', 'swayimg'])
 
         # Install previously selected applications
@@ -341,6 +341,10 @@ def perform_installation(mountpoint: Path):
         if modify_sway_desktop:
             installation.arch_chroot(
                 "sudo sed -i 's/^Exec=sway$/Exec=sway --unsupported-gpu/' /usr/share/wayland-sessions/sway.desktop")
+
+        # set write permissions to nwg-hello cache file
+        installation.arch_chroot("chown greeter /var/cache/nwg-hello/cache.json")
+        installation.arch_chroot("chmod u+rw /var/cache/nwg-hello/cache.json")
 
         info("\nModifying per user configs")
         for user in users:

@@ -140,7 +140,6 @@ gnome-themes-extra
 go
 gobject-introspection
 greetd
-greetd-regreet
 grim
 gtk-layer-shell
 gtk3
@@ -201,6 +200,7 @@ nwg-displays
 nwg-dock-bin
 nwg-dock-hyprland-bin
 nwg-drawer-bin
+nwg-hello
 nwg-icon-picker
 nwg-iso-stuff
 nwg-look-bin
@@ -214,9 +214,7 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 python-dasbus
-sddm-sugar-candy-nwg
 swaync
 wireplumber
 wlr-randr
 wlsunset
-

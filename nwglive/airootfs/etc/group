@@ -1,6 +1,6 @@
-root:x:0:root,nwg
+root:x:0:root,nwg,greeter
 adm:x:4:nwg
 wheel:x:10:nwg
 uucp:x:14:nwg
 nwg:x:1000:
-video:x:986:nwg,sddm
+video:x:986:nwg,greeter
