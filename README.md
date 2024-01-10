@@ -6,6 +6,8 @@ This repository is a part of the nwg-shell project. Please check the [project we
 
 [![Download nwg-iso](https://img.shields.io/sourceforge/dm/nwg-iso.svg)](https://sourceforge.net/projects/nwg-iso/files/latest/download)
 
+__WARNING: As for Jan 10th, 2024, the latest ISO release won't install, due to the `light` package no longer available in the Extra repository (reported [here](https://github.com/nwg-piotr/nwg-iso/issues/14)). I'll build a new ISO tonight, stay tuned.__
+
 The nwg-iso project provides an ISO image built with [archiso](https://wiki.archlinux.org/title/Archiso), with additions to ensure a simple way to install [Arch Linux](https://archlinux.org), [sway](https://swaywm.org/) & [Hyprland](https://hyprland.org/) Wayland compositors, and the [nwg-shell](https://nwg-piotr.github.io/nwg-shell) toolbox.
 
 The live environment comes with live Hyprland/sway environment, so that you can test compositors and the shell before installation. It also contains the `installer` command, which is a simplified version of the interactive installation with the [archinstall](https://github.com/archlinux/archinstall) script. Some must have stuff has already been pre-selected. All the AUR stuff comes packaged in the local repository. Besides, we only use [Arch](https://archlinux.org/packages) and [AUR](https://aur.archlinux.org/) repositories.
