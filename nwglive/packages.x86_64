@@ -129,6 +129,7 @@ zsh
 
 accountsservice
 bluez-utils
+brightnessctl
 cairo
 dbus
 file-roller
@@ -150,7 +151,6 @@ libgee
 libhandy
 libpulse
 libsoup
-light
 mousepad
 network-manager-applet
 noto-fonts
