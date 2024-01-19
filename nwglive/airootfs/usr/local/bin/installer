@@ -277,9 +277,9 @@ def perform_installation(mountpoint: Path):
             installation.add_additional_packages(archinstall.arguments.get('packages', None))
 
         installation.add_additional_packages(
-            ['networkmanager', 'network-manager-applet', 'iwd', 'nano', 'go', 'python-wheel', 'xdg-user-dirs',
-             'python-dasbus', 'udisks2', 'otf-font-awesome', 'baph', 'nwg-iso-stuff', 'wlr-randr', 'fastfetch',
-             'greetd', 'nwg-hello', 'pacseek-bin', 'swayimg', 'hyprland', 'xdg-desktop-portal-hyprland',
+            ['networkmanager', 'network-manager-applet', 'iwd', 'nano', 'file-roller', 'git', 'go', 'python-wheel',
+             'xdg-user-dirs', 'python-dasbus', 'udisks2', 'otf-font-awesome', 'baph', 'nwg-iso-stuff', 'wlr-randr',
+             'fastfetch', 'greetd', 'nwg-hello', 'pacseek-bin', 'swayimg', 'hyprland', 'xdg-desktop-portal-hyprland',
              'nwg-shell', 'swayimg'])
 
         # Install previously selected applications
