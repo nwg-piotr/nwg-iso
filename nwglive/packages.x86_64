@@ -182,6 +182,7 @@ ttf-dejavu
 upower
 wayland
 wl-clipboard
+wlsunset
 xdg-user-dirs
 xdg-utils
 xorg-xwayland
@@ -217,4 +218,3 @@ python-dasbus
 swaync
 wireplumber
 wlr-randr
-wlsunset
