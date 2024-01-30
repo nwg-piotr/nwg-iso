@@ -154,7 +154,6 @@ libsoup
 mousepad
 network-manager-applet
 noto-fonts
-nwg-look
 pacman-contrib
 papirus-icon-theme
 playerctl
@@ -205,6 +204,7 @@ nwg-drawer-bin
 nwg-hello
 nwg-icon-picker
 nwg-iso-stuff
+nwg-look-bin
 nwg-menu-bin
 nwg-panel
 nwg-readme-browser
