@@ -3,4 +3,4 @@ set $browser microsoft-edge-stable --enable-features=UseOzonePlatform --ozone-pl
 set $filemanager thunar
 set $editor mousepad
 set $launcher nwg-drawer
-set $exit nwg-bar -p center -a middle -i 48 -s preset-0.css
+set $exit $launcher
