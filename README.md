@@ -10,16 +10,6 @@ The nwg-iso project provides an ISO image built with [archiso](https://wiki.arch
 
 The live environment comes with live Hyprland/sway environment, so that you can test compositors and the shell before installation. It also contains the `installer` command, which is a simplified version of the interactive installation with the [archinstall](https://github.com/archlinux/archinstall) script. Some must have stuff has already been pre-selected. All the AUR stuff comes packaged in the local repository. Besides, we only use [Arch](https://archlinux.org/packages) and [AUR](https://aur.archlinux.org/) repositories.
 
-__> 2024.01.19 archinstall error: reflector hangs on searching mirrors__
-
-As a workaround, you need to stop `reflector.service`, see [this thread](https://www.reddit.com/r/archlinux/comments/199pp25/reflector_broken/) on Reddit. When installation hangs
-on reflector unavailable:
-
-- Ctrl+Alt+F2 (go to tty2)
-- login as root
-- run `systemctl stop reflector.service`
-- Ctrl+Alt+F1 (back to installation)
-
 ## Installation
 
 1. Download the nwg-live ISO.
