@@ -206,7 +206,7 @@
       "label": "",
       "label-position": "right",
       "tooltip": "Application drawer [Alt]+F1",
-      "css-name": "",
+      "css-name": "button-custom",
       "icon-size": 16
     },
     "button-help": {
@@ -215,7 +215,7 @@
       "label": "",
       "label-position": "right",
       "tooltip": "Show/hide help [S]+F1",
-      "css-name": "",
+      "css-name": "button-custom",
       "icon-size": 16
     },
     "button-clipman": {
@@ -224,7 +224,7 @@
       "label": "",
       "label-position": "right",
       "tooltip": "Clipboard history [Alt]+c",
-      "css-name": "",
+      "css-name": "button-custom",
       "icon-size": 16
     },
     "sigrt": 64,
