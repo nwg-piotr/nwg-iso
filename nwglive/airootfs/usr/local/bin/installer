@@ -42,7 +42,7 @@ bundles = {
     "Vivaldi": ["vivaldi", "vivaldi-ffmpeg-codecs"],
 
     "Extra GTK themes": ["nordic-polar-theme", "otis-theme-git"],
-    "Extra icon themes": ["tela-icon-theme"],
+    # "Extra icon themes": ["tela-icon-theme"],
     "Extra cursor themes": ["xcursor-vanilla-dmz"],
 
     "Modify": ["This will add the '--unsupported-gpu' argument in the sway.desktop file."],
@@ -98,7 +98,8 @@ def select_applications():
         global modify_sway_desktop
         modify_sway_desktop = menu_entry_index == 0
 
-    items = ["Extra GTK themes", "Extra icon themes", "Extra cursor themes"]
+    # items = ["Extra GTK themes", "Extra icon themes", "Extra cursor themes"]
+    items = ["Extra GTK themes", "Extra cursor themes"]
     t_menu = TerminalMenu(items, title=["Select extras (Esc to skip):"], clear_screen=True, multi_select=True,
                           show_multi_select_hint=True, multi_select_select_on_accept=False, multi_select_empty_ok=True,
                           preview_command=preview_cmd, preview_title="Packages")
