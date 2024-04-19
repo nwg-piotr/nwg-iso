@@ -73,7 +73,7 @@
           "cmd": "foot -H sudo installer"
         }
       ],
-      "menu": {
+       "menu": {
         "name": "Exit",
         "icon": "system-shutdown-symbolic",
         "items": [
@@ -83,15 +83,15 @@
           },
           {
             "name": "Exit Hyprland session",
-            "cmd": "hyprctl dispatch exit"
+            "cmd": "nwg-dialog -p exit-hyprland -c \"hyprctl dispatch exit\""
           },
           {
             "name": "Restart",
-            "cmd": "systemctl reboot"
+            "cmd": "nwg-dialog -p reboot -c \"systemctl reboot\""
           },
           {
             "name": "Shutdown",
-            "cmd": "systemctl -i poweroff"
+            "cmd": "nwg-dialog -p poweroff -c \"systemctl -i poweroff\""
           }
         ]
       },
