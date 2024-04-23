@@ -154,13 +154,16 @@ libsoup
 mousepad
 network-manager-applet
 noto-fonts
+nwg-icon-picker
 nwg-look
+nwg-panel
 pacman-contrib
 papirus-icon-theme
 playerctl
 polkit-gnome
 python
 python-cairo
+python-dasbus
 python-geopy
 python-gobject
 python-i3ipc
@@ -178,6 +181,7 @@ sway
 swaybg
 swayidle
 swayimg
+swaync
 swaylock
 thunar
 ttf-dejavu
@@ -185,6 +189,7 @@ upower
 vi
 wayland
 wl-clipboard
+wlr-randr
 wlsunset
 xdg-user-dirs
 xdg-utils
@@ -205,10 +210,8 @@ nwg-dock-bin
 nwg-dock-hyprland-bin
 nwg-drawer-bin
 nwg-hello
-nwg-icon-picker
 nwg-iso-stuff
 nwg-menu-bin
-nwg-panel
 nwg-readme-browser
 nwg-shell
 nwg-shell-config
@@ -217,7 +220,4 @@ pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
-python-dasbus
-swaync
 wireplumber
-wlr-randr
