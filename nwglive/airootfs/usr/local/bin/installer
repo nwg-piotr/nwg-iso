@@ -355,8 +355,8 @@ def perform_installation(mountpoint: Path):
             installation.arch_chroot("echo 'fastfetch' >> ~/.bashrc", run_as=user.username)
             # initialize xdg-user-dirs
             installation.arch_chroot("xdg-user-dirs-update", run_as=user.username)
-            # receive Simon Ser pgp key (for wlr-randr updates)
-            installation.arch_chroot("gpg --recv-key 0FDE7BE0E88F5E48", run_as=user.username)
+            # receive Simon Ser pgp key (for wlr-randr updates) No longer necessary, as it got to Arch/Extra
+            # installation.arch_chroot("gpg --recv-key 0FDE7BE0E88F5E48", run_as=user.username)
 
             # initialize nwg-shell configs
             installation.arch_chroot(f"nwg-shell-installer -w -hypr -s -k {locale_config.kb_layout}",
