@@ -4,7 +4,9 @@ arch-install-scripts
 archinstall
 b43-fwcutter
 base
+bcachefs-tools
 bind
+bolt
 brltty
 broadcom-wl
 btrfs-progs
@@ -44,6 +46,7 @@ iw
 iwd
 jfsutils
 kitty-terminfo
+ldns
 less
 lftp
 libfido2
@@ -118,7 +121,6 @@ usbutils
 vim
 virtualbox-guest-utils-nox
 vpnc
-wezterm-terminfo
 wireless-regdb
 wireless_tools
 wpa_supplicant
