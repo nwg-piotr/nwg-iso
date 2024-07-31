@@ -65,12 +65,7 @@ Type=Application
 ## Testing on a virtual machine
 
 is neither recommended nor supported. Running sway and Hyprland on a VM is possible, but frustrating (well, Hyprland 
-freezes for me very often). If you do need to do so, remember to enable 3D acceleration and EFI. Also remember to 
-choose SDDM as your display manager. LightDM with the greeter that uses the cage wayland compositor won't behave well.
-
-## Known issues
-
-- 2023-12-05: gtklock won't work in the Hyprland session, due to the wlr-input-inhibitor protocol missing from Hyprland 0.33.0. Reported [here](https://github.com/jovanlanik/gtklock/issues/78).
+freezes for me very often). If you do need to do so, remember to enable 3D acceleration and EFI.
 
 ## Contact
 
