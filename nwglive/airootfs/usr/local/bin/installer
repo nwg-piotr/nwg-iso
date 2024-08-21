@@ -42,7 +42,6 @@ bundles = {
     "Vivaldi": ["vivaldi", "vivaldi-ffmpeg-codecs"],
 
     "Extra GTK themes": ["nordic-polar-theme", "otis-theme-git"],
-    # "Extra icon themes": ["tela-icon-theme"],
     "Extra cursor themes": ["xcursor-vanilla-dmz"],
 
     "Modify": ["This will add the '--unsupported-gpu' argument in the sway.desktop file."],
@@ -98,7 +97,6 @@ def select_applications():
         global modify_sway_desktop
         modify_sway_desktop = menu_entry_index == 0
 
-    # items = ["Extra GTK themes", "Extra icon themes", "Extra cursor themes"]
     items = ["Extra GTK themes", "Extra cursor themes"]
     t_menu = TerminalMenu(items, title=["Select extras (Esc to skip):"], clear_screen=True, multi_select=True,
                           show_multi_select_hint=True, multi_select_select_on_accept=False, multi_select_empty_ok=True,
@@ -274,8 +272,8 @@ def perform_installation(mountpoint: Path):
 
         installation.add_additional_packages(
             ['networkmanager', 'network-manager-applet', 'iwd', 'nano', 'file-roller', 'git', 'go', 'vi', 'python-wheel',
-             'xdg-user-dirs', 'udisks2', 'otf-font-awesome', 'baph', 'nwg-iso-stuff', 'wlr-randr', 'fastfetch',
-             'greetd', 'nwg-hello', 'pacseek-bin', 'swayimg', 'hyprland', 'xdg-desktop-portal-hyprland', 'nwg-shell',
+             'xdg-user-dirs', 'udisks2', 'otf-font-awesome', 'nwg-iso-stuff', 'wlr-randr', 'fastfetch',
+             'greetd', 'nwg-hello', 'swayimg', 'hyprland', 'xdg-desktop-portal-hyprland', 'nwg-shell',
              'swayimg'])
 
         # Install previously selected applications

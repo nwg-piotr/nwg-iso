@@ -198,7 +198,6 @@ xdg-utils
 xorg-xwayland
 
 azote
-baph
 fastfetch
 gopsuinfo
 gst-plugin-pipewire
@@ -206,14 +205,14 @@ gtklock
 gtklock-playerctl-module
 gtklock-powerbar-module
 gtklock-userinfo-module
-nwg-bar-bin
+nwg-bar
 nwg-displays
-nwg-dock-bin
-nwg-dock-hyprland-bin
-nwg-drawer-bin
+nwg-dock
+nwg-dock-hyprland
+nwg-drawer
 nwg-hello
 nwg-iso-stuff
-nwg-menu-bin
+nwg-menu
 nwg-readme-browser
 nwg-shell
 nwg-shell-config

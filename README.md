@@ -6,18 +6,19 @@ This repository is a part of the nwg-shell project. Please check the [project we
 
 [![Download nwg-iso](https://img.shields.io/sourceforge/dm/nwg-iso.svg)](https://sourceforge.net/projects/nwg-iso/files/latest/download)
 
-See: [Hyprland v0.41.0 issues](https://github.com/nwg-piotr/nwg-shell/discussions/348)
-
 The nwg-iso project provides an ISO image built with [archiso](https://wiki.archlinux.org/title/Archiso), with additions to ensure a simple way to install [Arch Linux](https://archlinux.org), [sway](https://swaywm.org/) & [Hyprland](https://hyprland.org/) Wayland compositors, and the [nwg-shell](https://nwg-piotr.github.io/nwg-shell) toolbox.
 
-The live environment comes with live Hyprland/sway environment, so that you can test compositors and the shell before installation. It also contains the `installer` command, which is a simplified version of the interactive installation with the [archinstall](https://github.com/archlinux/archinstall) script. Some must have stuff has already been pre-selected. All the AUR stuff comes packaged in the local repository. Besides, we only use [Arch](https://archlinux.org/packages) and [AUR](https://aur.archlinux.org/) repositories.
+The live environment comes with live sway & Hyprland sessions, so that you can test compositors 
+and the shell before installation. It also contains the `installer` command, which is a simplified 
+version of the interactive installation with the [archinstall](https://github.com/archlinux/archinstall) script. Some must have stuff has 
+already been pre-selected.
 
 ## Installation
 
 1. Download the nwg-live ISO.
 2. [Create USB flash installation medium](https://wiki.archlinux.org/title/USB_flash_installation_medium).
 3. Boot from the flash drive, enjoy the live sway and Hyprland environment. **User**: `nwg` **Password**: `nwg`
-5. If you decide to install, use the "Installer" item in the top panel menu. The script will run in the terminal emulator.
+4. If you decide to install, use the "Installer" item in the top panel menu. The script will run in the terminal emulator.
 
 ## Post-installation
 
@@ -29,17 +30,15 @@ Click the (i) icon in the top panel to see key bindings help. Open the Controls 
 
 ## AUR helpers
 
-Nwg-shell comes with the [baph](https://bitbucket.org/natemaia/baph) (Basic AUR Package Helper) preinstalled. It's simple and it just works.
-Starting from nwg-shell-config 0.5.24, support for [yay](https://github.com/Jguer/yay) AUR helper has been added. 
-If you install the `yay` or `yay-bin` package, yay will be used instead of baph, as well by the tray notification applet, 
-as by the `nwg-system-update` script.
+As for August, 21st 2024, we no longer use any pre-installed AUR helper. All the former AUR stuff
+made it to the Arch [Extra] repository. Just installed system will use pacman/checkupdates in the
+tray update notification applet. If you want it to look for AUR updates, install one of supported 
+AUR helpers, and those are [baph](https://bitbucket.org/natemaia/baph) and [yay](https://github.com/Jguer/yay).
 
 ## Preinstalled stuff
 
 - [foot](https://wiki.archlinux.org/title/Foot) - Fast, lightweight and minimalistic Wayland terminal emulator (Super+T);
-- [baph](https://bitbucket.org/natemaia/baph) - Basic AUR Package Helper;
 - [fastfetch](https://github.com/fastfetch-cli/fastfetch) - Like neofetch, but much faster because written in C;
-- [pacseek](https://github.com/moson-mo/pacseek) - TUI for searching and installing Arch Linux packages;
 - [swayimg](https://github.com/artemsen/swayimg) - Image viewer for Sway/Wayland;
 - A file manager, text editor and web browser of your choice;
 - Optionally: extra GTK themes, icon themes and a cursor theme.
