@@ -30,26 +30,75 @@ Click the (i) icon in the top panel to see key bindings help. Open the Controls 
 
 ## AUR helpers
 
-As for August, 21st 2024, we no longer use any pre-installed AUR helper. All the former AUR stuff
+As for August 21st, 2024, we no longer use any pre-installed AUR helper. All the former AUR stuff
 made it to the Arch [Extra] repository. Just installed system will use pacman/checkupdates in the
 tray update notification applet. If you want it to look for AUR updates, install one of supported 
 AUR helpers, and those are [baph](https://bitbucket.org/natemaia/baph) and [yay](https://github.com/Jguer/yay).
 
 ## Preinstalled stuff
 
-- [foot](https://wiki.archlinux.org/title/Foot) - Fast, lightweight and minimalistic Wayland terminal emulator (Super+T);
-- [fastfetch](https://github.com/fastfetch-cli/fastfetch) - Like neofetch, but much faster because written in C;
-- [swayimg](https://github.com/artemsen/swayimg) - Image viewer for Sway/Wayland;
-- A file manager, text editor and web browser of your choice;
-- Optionally: extra GTK themes, icon themes and a cursor theme.
+- azote
+- engrampa
+- fastfetch
+- foot
+- gnome-themes-extra
+- gopsuinfo
+- grim
+- gtklock
+- gtklock-playerctl-module
+- gtklock-powerbar-module
+- gtklock-userinfo-module
+- hyprland
+- imagemagick
+- iwd
+- jq
+- libappindicator-gtk3
+- networkmanager
+- network-manager-applet
+- nano
+- nwg-clipman
+- nwg-displays
+- nwg-dock
+- nwg-dock-hyprland
+- nwg-drawer
+- nwg-icon-browser
+- nwg-hello
+- nwg-look
+- nwg-menu
+- nwg-panel
+- nwg-readme-browser
+- nwg-shell-config
+- nwg-shell-wallpapers
+- otf-font-awesome
+- papirus-icon-theme
+- playerctl
+- polkit-gnome
+- python
+- slurp
+- swappy
+- sway
+- swaybg
+- swayidle
+- swayimg
+- swaylock
+- swaync
+- ttf-dejavu
+- udisks2
+- wl-clipboard
+- wlsunset
+- xdg-desktop-portal-hyprland
+- xdg-user-dirs
+- xorg-xwayland
+- web browser, text editor, file manager chosen during installation
+- optionally: extra GTK themes, icon themes
 
-**Aliases:**
+## Aliases
 
 - `cls` for `clear`
 
 ## sway session on Nvidia GPU
 
-To be able to run sway on Nvidia GPU, you need to use the `--unsupported-gpu` flag. Since the 2023.11.09 ISO version the installer should do it for you, but I have no Nvidia in range and haven't yet tested it. So, just in case - the sway.desktop file should look as below:
+To be able to run sway on Nvidia GPU w/ proprietary drivers, you need to use the `--unsupported-gpu` flag. Since the 2023.11.09 ISO version the installer should do it for you, but I have no Nvidia in range and haven't yet tested it. So, just in case - the sway.desktop file should look as below:
 
 `# nano /usr/share/wayland-sessions/sway.desktop`
 
