@@ -98,7 +98,7 @@ AUR helpers, and those are [baph](https://bitbucket.org/natemaia/baph) and [yay]
 
 ## sway session on Nvidia GPU
 
-To be able to run sway on Nvidia GPU w/ proprietary drivers, you need to use the `--unsupported-gpu` flag. Since the 2023.11.09 ISO version the installer should do it for you, but I have no Nvidia in range and haven't yet tested it. So, just in case - the sway.desktop file should look as below:
+To be able to run sway on Nvidia GPU, you need to use the `--unsupported-gpu` flag. Since the 2023.11.09 ISO version the installer should do it for you, but I have no Nvidia in range and haven't yet tested it. So, just in case - the sway.desktop file should look as below:
 
 `# nano /usr/share/wayland-sessions/sway.desktop`
 
