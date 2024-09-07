@@ -2,22 +2,21 @@
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Optional
 
-import archinstall
 import subprocess
+
+import archinstall
 from archinstall import info, debug
 from archinstall import SysInfo
-from archinstall.lib import locale
-from archinstall.lib import disk
-from archinstall.lib.global_menu import GlobalMenu
-from archinstall.lib.installer import Installer
-from archinstall.lib.models import AudioConfiguration
-from archinstall.lib.models.bootloader import Bootloader
+from archinstall import locale
+from archinstall import disk
+from archinstall import Installer
 from archinstall.lib.models.network_configuration import NetworkConfiguration
 from archinstall.lib.pacman import Pacman
 from archinstall import profile
 from archinstall.default_profiles.minimal import MinimalProfile
 from simple_term_menu import TerminalMenu
 
+from archinstall import models
 
 bundles = {
     "Caja": ["caja", "gstreamer"],
@@ -128,7 +127,7 @@ if archinstall.arguments.get('help'):
 
 
 def ask_user_questions():
-    global_menu = GlobalMenu(data_store=archinstall.arguments)
+    global_menu = archinstall.GlobalMenu(data_store=archinstall.arguments)
 
     global_menu.enable('archinstall-language')
 
@@ -240,7 +239,7 @@ def perform_installation(mountpoint: Path):
         if archinstall.arguments.get('swap'):
             installation.setup_swap('zram')
 
-        if archinstall.arguments.get("bootloader") == Bootloader.Grub and SysInfo.has_uefi():
+        if archinstall.arguments.get("bootloader") == models.Bootloader.Grub and SysInfo.has_uefi():
             installation.add_additional_packages("grub")
 
         installation.add_bootloader(
@@ -261,7 +260,7 @@ def perform_installation(mountpoint: Path):
         if users := archinstall.arguments.get('!users', None):
             installation.create_users(users)
 
-        audio_config: Optional[AudioConfiguration] = archinstall.arguments.get('audio_config', None)
+        audio_config: Optional[models.AudioConfiguration] = archinstall.arguments.get('audio_config', None)
         if audio_config:
             audio_config.install_audio_config(installation)
         else:
@@ -271,10 +270,9 @@ def perform_installation(mountpoint: Path):
             installation.add_additional_packages(archinstall.arguments.get('packages', None))
 
         installation.add_additional_packages(
-            ['networkmanager', 'network-manager-applet', 'iwd', 'nano', 'file-roller', 'git', 'go', 'vi', 'python-wheel',
-             'xdg-user-dirs', 'udisks2', 'otf-font-awesome', 'nwg-iso-stuff', 'wlr-randr', 'fastfetch',
-             'greetd', 'nwg-hello', 'swayimg', 'hyprland', 'xdg-desktop-portal-hyprland', 'nwg-shell',
-             'swayimg'])
+            ['networkmanager', 'iwd', 'nano', 'engrampa', 'xdg-user-dirs', 'udisks2', 'otf-font-awesome',
+             'nwg-iso-stuff', 'fastfetch', 'nwg-hello', 'swayimg', 'hyprland', 'xdg-desktop-portal-hyprland',
+             'nwg-shell'])
 
         # Install previously selected applications
         info(f'Installing selected: {" ".join(applications)}')
@@ -353,8 +351,6 @@ def perform_installation(mountpoint: Path):
             installation.arch_chroot("echo 'fastfetch' >> ~/.bashrc", run_as=user.username)
             # initialize xdg-user-dirs
             installation.arch_chroot("xdg-user-dirs-update", run_as=user.username)
-            # receive Simon Ser pgp key (for wlr-randr updates) No longer necessary, as it got to Arch/Extra
-            # installation.arch_chroot("gpg --recv-key 0FDE7BE0E88F5E48", run_as=user.username)
 
             # initialize nwg-shell configs
             installation.arch_chroot(f"nwg-shell-installer -w -hypr -s -k {locale_config.kb_layout}",
