@@ -4,6 +4,7 @@
 <b>[S]+F</b> ......................... File manager
 <b>[Alt]+D</b> ..................... Dock show/hide
 <b>[Alt]+F1</b> ................ Application drawer
+<b>[Alt]+c</b> .................. Clipboard history
 <b>[S]+F1</b> ...................... Show/hide help
 ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
 <b>[Alt]+Q/[Alt]+F4</b> ............... Kill window
@@ -14,6 +15,7 @@
 ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
 <b>[S]+LMB</b> ........................ Move window
 <b>[S]+RMB</b> ...................... Resize window
+<b>[S]+r</b> .... Resize Submap (Esc/Enter to exit)
 <b>[S]+number</b> ................ Switch workspace
 <b>[S]+[Shift]+number</b> ....... Move to workspace
 <b>[S]+arrow</b> ....................... Move focus

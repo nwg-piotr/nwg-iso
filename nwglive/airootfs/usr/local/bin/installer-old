@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Optional
 
@@ -10,18 +9,14 @@ from archinstall import info, debug
 from archinstall import SysInfo
 from archinstall import locale
 from archinstall import disk
-from archinstall.lib.global_menu import GlobalMenu
-from archinstall.lib.configuration import ConfigurationOutput
-from archinstall.lib.installer import Installer
-from archinstall.lib.models import AudioConfiguration, Bootloader
+from archinstall import Installer
 from archinstall.lib.models.network_configuration import NetworkConfiguration
 from archinstall.lib.pacman import Pacman
-from archinstall.lib.profile.profiles_handler import profile_handler
 from archinstall import profile
 from archinstall.default_profiles.minimal import MinimalProfile
-from archinstall.lib.interactions.general_conf import ask_chroot
-from archinstall.tui import Tui
 from simple_term_menu import TerminalMenu
+
+from archinstall import models
 
 bundles = {
     "Caja": ["caja", "gstreamer"],
@@ -132,41 +127,66 @@ if archinstall.arguments.get('help'):
 
 
 def ask_user_questions():
-    """
-    First, we'll ask the user for a bunch of user input.
-    Not until we're satisfied with what we want to install
-    will we continue with the actual installation steps.
-    """
+    global_menu = archinstall.GlobalMenu(data_store=archinstall.arguments)
 
-    with Tui():
-        global_menu = GlobalMenu(data_store=archinstall.arguments)
+    global_menu.enable('archinstall-language')
 
-        global_menu.disable_all()
+    # Set which region to download packages from during the installation
+    global_menu.enable('mirror_config')
 
-        global_menu.set_enabled('archinstall-language', True)
-        global_menu.set_enabled('mirror_config', True)
-        global_menu.set_enabled('locale_config', True)
-        global_menu.set_enabled('disk_config', True)
-        global_menu.set_enabled('disk_encryption', True)
-        global_menu.set_enabled('bootloader', True)
-        global_menu.set_enabled('uki', True)
-        global_menu.set_enabled('swap', True)
-        global_menu.set_enabled('hostname', True)
-        global_menu.set_enabled('!root-password', True)
-        global_menu.set_enabled('!users', True)
-        global_menu.set_enabled('audio_config', True)
-        global_menu.set_enabled('kernels', True)
-        global_menu.set_enabled('packages', True)
-        global_menu.set_enabled('timezone', True)
-        global_menu.set_enabled('ntp', True)
-        global_menu.set_enabled('additional-repositories', True)
-        global_menu.set_enabled('install', True)
-        global_menu.set_enabled('abort', True)
+    global_menu.enable('locale_config')
 
-        if not archinstall.arguments.get('advanced', False):
-            global_menu.set_enabled('parallel downloads', False)
+    global_menu.enable('disk_config', mandatory=True)
 
-        global_menu.run()
+    # Specify disk encryption options
+    global_menu.enable('disk_encryption')
+
+    # Ask which bootloader to use (will only ask if we're in UEFI mode, otherwise will default to GRUB)
+    global_menu.enable('bootloader')
+
+    global_menu.enable('uki')
+
+    global_menu.enable('swap')
+
+    # Get the hostname for the machine
+    global_menu.enable('hostname')
+
+    # Ask for a root password (optional, but triggers requirement for super-user if skipped)
+    global_menu.enable('!root-password', mandatory=True)
+
+    global_menu.enable('!users', mandatory=True)
+
+    # Ask for archinstall-specific profiles_bck (such as desktop environments etc)
+    # global_menu.enable('profile_config')
+
+    # Ask about audio server selection if one is not already set
+    global_menu.enable('audio_config')
+
+    # Ask for preferred kernel:
+    global_menu.enable('kernels', mandatory=True)
+
+    global_menu.enable('packages')
+
+    if archinstall.arguments.get('advanced', False):
+        # Enable parallel downloads
+        global_menu.enable('parallel downloads')
+
+    # Ask or Call the helper function that asks the user to optionally configure a network.
+    # global_menu.enable('network_config')
+
+    global_menu.enable('timezone')
+
+    global_menu.enable('ntp')
+
+    global_menu.enable('additional-repositories')
+
+    global_menu.enable('__separator__')
+
+    # global_menu.enable('save_config')
+    global_menu.enable('install')
+    global_menu.enable('abort')
+
+    global_menu.run()
 
 
 def perform_installation(mountpoint: Path):
@@ -219,7 +239,7 @@ def perform_installation(mountpoint: Path):
         if archinstall.arguments.get('swap'):
             installation.setup_swap('zram')
 
-        if archinstall.arguments.get("bootloader") == Bootloader.Grub and SysInfo.has_uefi():
+        if archinstall.arguments.get("bootloader") == models.Bootloader.Grub and SysInfo.has_uefi():
             installation.add_additional_packages("grub")
 
         installation.add_bootloader(
@@ -240,7 +260,7 @@ def perform_installation(mountpoint: Path):
         if users := archinstall.arguments.get('!users', None):
             installation.create_users(users)
 
-        audio_config: AudioConfiguration | None = archinstall.arguments.get('audio_config', None)
+        audio_config: Optional[models.AudioConfiguration] = archinstall.arguments.get('audio_config', None)
         if audio_config:
             audio_config.install_audio_config(installation)
         else:

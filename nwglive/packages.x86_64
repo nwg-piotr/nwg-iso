@@ -32,7 +32,6 @@ f2fs-tools
 fatresize
 foot-terminfo
 fsarchiver
-gnu-netcat
 gpart
 gpm
 gptfdisk
@@ -199,6 +198,7 @@ python-psutil
 python-requests
 python-send2trash
 python-setuptools
+python-simple-term-menu
 python-wheel
 python-yaml
 slurp
