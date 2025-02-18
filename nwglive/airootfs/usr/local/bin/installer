@@ -67,9 +67,9 @@ def select_applications():
         menu_entry_index = 0
     append_if_absent(apps, bundles[items[menu_entry_index]])
 
-    items = ["Mousepad", "Emacs", "gedit", "Geany"]
+    items = ["typobuster", "Mousepad", "Emacs", "gedit", "Geany"]
     t_menu = TerminalMenu(items, title=["Select text editor (Esc to skip):"], clear_screen=True,
-                          status_bar="Selection is mandatory. If skipped, Mousepad will be installed.",
+                          status_bar="Selection is mandatory. If skipped, typobuster (nwg-shell native editor) will be installed.",
                           preview_command=preview_cmd, preview_title="Packages")
     menu_entry_index = t_menu.show()
     if not menu_entry_index:
