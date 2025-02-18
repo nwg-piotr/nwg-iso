@@ -1,6 +1,6 @@
 set $term foot
 set $browser firefox
 set $filemanager thunar
-set $editor mousepad
+set $editor typobuster
 set $launcher nwg-drawer
 set $exit $launcher

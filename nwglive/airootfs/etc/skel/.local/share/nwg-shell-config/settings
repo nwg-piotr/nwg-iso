@@ -14,7 +14,7 @@
   "night-on": true,
   "terminal": "foot",
   "file-manager": "thunar",
-  "editor": "mousepad",
+  "editor": "typobuster",
   "browser": "MOZ_ENABLE_WAYLAND=1 firefox",
   "pb-exit": "nwg-dialog -p exit-sway -c \"swaymsg exit\"",
   "pb-lock": "nwg-lock",
