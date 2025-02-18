@@ -93,7 +93,6 @@ pv
 qemu-guest-agent
 refind
 reflector
-reiserfsprogs
 rp-pppoe
 rsync
 rxvt-unicode-terminfo
@@ -211,6 +210,7 @@ swaylock
 swaync
 thunar
 ttf-dejavu
+typobuster
 udisks2
 upower
 wayland
