@@ -1,5 +1,5 @@
 set $term foot
-set $browser microsoft-edge-stable --enable-features=UseOzonePlatform --ozone-platform=wayland
+set $browser firefox
 set $filemanager thunar
 set $editor mousepad
 set $launcher nwg-drawer
