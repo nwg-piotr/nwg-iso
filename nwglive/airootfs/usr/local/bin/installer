@@ -35,6 +35,7 @@ bundles = {
     "gedit": ["gedit", "gedit-plugins"],
     "Geany": ["geany", "geany-plugins"],
     "Mousepad": ["mousepad", "gspell"],
+    "typobuster": ["typobuster", "gspell", "hunspell-en_US"],
     "Vim": ["vim"],
 
     "Chromium": ["chromium"],
