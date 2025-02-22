@@ -253,7 +253,7 @@ def perform_installation(mountpoint: Path):
         installation.add_additional_packages(
             ['networkmanager', 'iwd', 'nano', 'file-roller', 'xdg-user-dirs', 'udisks2', 'otf-font-awesome',
              'nwg-iso-stuff', 'fastfetch', 'nwg-hello', 'swayimg', 'hyprland', 'nwg-dock-hyprland',
-             'xdg-desktop-portal-hyprland', 'nwg-shell'
+             'xdg-desktop-portal-hyprland', 'nwg-shell',
              'gspell', 'hunspell', 'hspell', 'nuspell', 'aspell' 'libvoikko'])
 
         # Install previously selected applications
