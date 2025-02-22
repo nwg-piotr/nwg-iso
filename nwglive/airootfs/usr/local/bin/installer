@@ -35,7 +35,7 @@ bundles = {
     "gedit": ["gedit", "gedit-plugins"],
     "Geany": ["geany", "geany-plugins"],
     "Mousepad": ["mousepad", "gspell"],
-    "typobuster": ["typobuster", "gspell", "hunspell-en_US"],
+    "typobuster": ["typobuster", "gspell", "hunspell", "hunspell-en_US"],
     "Vim": ["vim"],
 
     "Chromium": ["chromium"],
@@ -253,7 +253,8 @@ def perform_installation(mountpoint: Path):
         installation.add_additional_packages(
             ['networkmanager', 'iwd', 'nano', 'file-roller', 'xdg-user-dirs', 'udisks2', 'otf-font-awesome',
              'nwg-iso-stuff', 'fastfetch', 'nwg-hello', 'swayimg', 'hyprland', 'nwg-dock-hyprland',
-             'xdg-desktop-portal-hyprland', 'nwg-shell'])
+             'xdg-desktop-portal-hyprland', 'nwg-shell'
+             'gspell', 'hunspell', 'hspell', 'nuspell', 'aspell' 'libvoikko'])
 
         # Install previously selected applications
         info(f'Installing selected: {" ".join(applications)}')
