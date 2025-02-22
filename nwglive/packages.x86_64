@@ -128,6 +128,7 @@ xl2tpd
 zsh
 
 accountsservice
+aspell
 azote
 bluez-utils
 brightnessctl
@@ -135,6 +136,7 @@ cairo
 dbus
 engrampa
 fastfetch
+gspell
 firefox
 foot
 glib2
@@ -150,6 +152,9 @@ gtklock
 gtklock-playerctl-module
 gtklock-powerbar-module
 gtklock-userinfo-module
+hspell
+hunspell
+hunspell-en_us
 hyprland
 imagemagick
 json-glib
@@ -158,6 +163,7 @@ libgee
 libhandy
 libpulse
 libsoup
+libvoikko
 network-manager-applet
 noto-fonts
 nwg-bar
@@ -175,6 +181,7 @@ nwg-readme-browser
 nwg-shell
 nwg-shell-config
 nwg-shell-wallpapers
+nuspell
 otf-font-awesome
 pacman-contrib
 papirus-icon-theme
