@@ -23,6 +23,8 @@ from archinstall.lib.profile.profiles_handler import profile_handler
 from archinstall.tui import Tui
 from simple_term_menu import TerminalMenu
 
+applications = []
+
 bundles = {
     "Caja": ["caja", "gstreamer"],
     "Nautilus": ["nautilus"],
@@ -248,6 +250,10 @@ def perform_installation(mountpoint: Path) -> None:
              'xdg-desktop-portal-hyprland', 'nwg-shell', 'gspell', 'hunspell', 'hspell', 'nuspell', 'aspell',
              'libvoikko'])
 
+        # Install previously selected applications
+        info(f'Installing selected: {" ".join(applications)}')
+        installation.add_additional_packages(applications)
+
         if profile_config := config.profile_config:
             profile_handler.install_profile_config(installation, profile_config)
 
@@ -270,6 +276,8 @@ def perform_installation(mountpoint: Path) -> None:
         # Note that while it's called enable_service, it can actually take a list of services and iterate it.
         if servies := config.services:
             installation.enable_service(servies)
+
+        installation.enable_service(['NetworkManager.service', 'iwd.service'])
 
         # If the user provided custom commands to be run post-installation, execute them now.
         if cc := config.custom_commands:
@@ -338,6 +346,10 @@ def guided() -> None:
         exit(1)
 
     ask_user_questions()
+
+    # file manager, text editor, browser, display manager, extras; also asks whether to modify the sway.desktop file
+    global applications
+    applications = select_applications()
 
     config = ConfigurationOutput(arch_config_handler.config)
     config.write_debug()
