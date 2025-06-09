@@ -141,7 +141,7 @@ def ask_user_questions() -> None:
         global_menu.set_enabled('mirror_config', True)
         global_menu.set_enabled('locale_config', True)
         global_menu.set_enabled('disk_config', True)
-        global_menu.set_enabled('disk_encryption', True)
+        # global_menu.set_enabled('disk_encryption', True)
         global_menu.set_enabled('bootloader', True)
         global_menu.set_enabled('uki', True)
         global_menu.set_enabled('swap', True)
@@ -181,13 +181,13 @@ def perform_installation(mountpoint: Path) -> None:
     disk_config: DiskLayoutConfiguration = config.disk_config
     run_mkinitcpio = not config.uki
     locale_config = config.locale_config
-    disk_encryption = config.disk_encryption
+    # disk_encryption = config.disk_encryption
     optional_repositories = config.mirror_config.optional_repositories if config.mirror_config else []
 
     with Installer(
             mountpoint,
             disk_config,
-            disk_encryption=disk_encryption,
+            # disk_encryption=disk_encryption,
             kernels=config.kernels
     ) as installation:
         # Mount all the drives to the desired mountpoint
@@ -196,10 +196,10 @@ def perform_installation(mountpoint: Path) -> None:
 
         installation.sanity_check()
 
-        if disk_config.config_type != DiskLayoutType.Pre_mount:
-            if disk_encryption and disk_encryption.encryption_type != EncryptionType.NoEncryption:
-                # generate encryption key files for the mounted luks devices
-                installation.generate_key_files()
+        # if disk_config.config_type != DiskLayoutType.Pre_mount:
+        #     if disk_encryption and disk_encryption.encryption_type != EncryptionType.NoEncryption:
+        #         # generate encryption key files for the mounted luks devices
+        #         installation.generate_key_files()
 
         if mirror_config := config.mirror_config:
             installation.set_mirrors(mirror_config, on_target=False)
@@ -369,7 +369,7 @@ def guided() -> None:
     if arch_config_handler.config.disk_config:
         fs_handler = FilesystemHandler(
             arch_config_handler.config.disk_config,
-            arch_config_handler.config.disk_encryption
+            # arch_config_handler.config.disk_encryption
         )
 
         fs_handler.perform_filesystem_operations()
