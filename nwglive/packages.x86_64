@@ -162,6 +162,7 @@ libhandy
 libpulse
 libsoup
 libvoikko
+mmc-utils
 network-manager-applet
 nwg-bar
 nwg-displays
@@ -216,6 +217,7 @@ ttf-dejavu
 typobuster
 udisks2
 upower
+uwsm
 wayland
 wireplumber
 wl-clipboard

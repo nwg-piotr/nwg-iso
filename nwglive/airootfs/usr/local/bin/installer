@@ -249,7 +249,7 @@ def perform_installation(mountpoint: Path) -> None:
             ['networkmanager', 'iwd', 'nano', 'file-roller', 'xdg-user-dirs', 'udisks2', 'otf-font-awesome',
              'nwg-iso-stuff', 'fastfetch', 'nwg-hello', 'swayimg', 'hyprland', 'nwg-dock-hyprland',
              'xdg-desktop-portal-hyprland', 'gnome-keyring', 'nwg-shell', 'gspell', 'hunspell', 'hspell', 'nuspell',
-             'aspell', 'libvoikko'])
+             'aspell', 'libvoikko', 'uwsm'])
 
         # Install previously selected applications
         info(f'Installing selected: {" ".join(applications)}')
